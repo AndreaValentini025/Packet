@@ -59,5 +59,5 @@ def modulo(request):
 class RichiestaCreateView(generic.CreateView):
     model = Richiesta
     fields = ['nome','cognome','codice_fiscale','matricola','tutor','sede','durata','data_inizio','data_fine','obiettivi','autocertificazione']
-    template_name = 'richiesta_new_form.html'
+    template_name = 'polls/richiesta_new_form.html'
 
