@@ -58,6 +58,7 @@ def modulo(request):
     return render(request, 'polls/paginaProva.html')
 
 
+"""
 class RichiestaForm(forms.ModelForm):
     class Meta:
         model = Richiesta
@@ -91,8 +92,16 @@ class RichiestaCreateView(generic.CreateView):
 
 
 """
+
+
 class RichiestaCreateView(generic.CreateView):
     model = Richiesta
     fields = ['nome','cognome','codice_fiscale','matricola','tutor','sede','durata','data_inizio','data_fine','obiettivi','autocertificazione']
     template_name = 'polls/richiesta_new_form.html'
-"""
+
+    def get_form(self, form_class):
+        form = super(RichiestaCreateView, self).get_form(form_class)
+        form.fields['data_fine'].widget.attrs.update({'class': 'datepicker'})
+        form.fields['data_inizio'].widget.attrs.update({'class': 'datepicker'})
+        return form
+
