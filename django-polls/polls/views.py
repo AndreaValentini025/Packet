@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
+from django import forms
+import ipywidgets as widgets
 
 from .models import Choice, Question, Richiesta, Professore
 
@@ -56,8 +58,31 @@ def modulo(request):
     return render(request, 'polls/paginaProva.html')
 
 
+class RichiestaForm(forms.ModelForm):
+    class Meta:
+        model = Richiesta
+        fields = ['nome','cognome','codice_fiscale','matricola','tutor','sede',
+                  'durata','data_inizio','data_fine','obiettivi','autocertificazione']
+        widgets = {
+            'data_inizio': widgets.DatePicker(
+                            description='Data Inizio Attività',
+                            disabled=False
+                        ),
+            'data_fine': widgets.DatePicker(
+                            description='Data Fine Attività',
+                            disabled=False
+                        )
+        }
+
+
+class RichiestaCreateView(generic.CreateView):
+    form_class = RichiestaForm
+    model = Richiesta
+
+
+"""
 class RichiestaCreateView(generic.CreateView):
     model = Richiesta
     fields = ['nome','cognome','codice_fiscale','matricola','tutor','sede','durata','data_inizio','data_fine','obiettivi','autocertificazione']
     template_name = 'polls/richiesta_new_form.html'
-
+"""
