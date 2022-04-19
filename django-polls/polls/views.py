@@ -67,14 +67,19 @@ class RichiestaForm(forms.ModelForm):
             'data_inizio': widgets.DatePicker(
                             description='Data Inizio Attività',
                             disabled=False,
-                            label_tag='Data Inizio Attività',
-                            help_text=''
+                            attrs={
+                                'label_tag' : 'Data Inizio Attività',
+                                'help_text' : ''
+                            }
+
                         ),
             'data_fine': widgets.DatePicker(
                             description='Data Fine Attività',
                             disabled=False,
-                            label_tag='Data Fine Attività',
-                            help_text=''
+                            attrs={
+                                'label_tag': 'Data Fine Attività',
+                                'help_text': ''
+                            }
                         )
         }
 
