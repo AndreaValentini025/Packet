@@ -6,6 +6,8 @@ from django.utils import timezone
 from django import forms
 import ipywidgets as widgets
 
+from django.contrib import messages
+
 from .models import Choice, Question, Richiesta, Professore
 
 
@@ -93,6 +95,31 @@ class RichiestaCreateView(generic.CreateView):
 
 """
 
+def createRichiesta(request):
+    if request.method == 'POST':
+        if request.POST.get('autocertificazione') and request.POST.get('matricola'):
+            richiesta = Richiesta()
+            richiesta.id= request.POST.get('id')
+            richiesta.nome =request.POST.get('nome')
+            richiesta.cognome =request.POST.get('cognome')
+            richiesta.codice_fiscale =request.POST.get('codice_fiscale')
+            richiesta.matricola = request.POST.get('matricola')
+            richiesta.tutor = request.POST.get('tutor')
+            richiesta.sede = request.POST.get('sede')
+            richiesta.durata = request.POST.get('durata')
+            richiesta.data_inizio =request.POST.get('data_inizio')
+            richiesta.data_fine = request.POST.get('data_fine')
+            richiesta.obiettivi = request.POST.get('obiettivi')
+            richiesta.autocertificazione=request.FILES.get('autocertificazione')
+
+            richiesta.save()
+
+            messages.success(request, "La tua richiesta è stata inserita correttamente")
+
+            return HttpResponseRedirect(reverse("polls:datiInseriti",args=(richiesta.id,)))
+    else:
+        return render(request, 'polls/modulo')
+
 
 class RichiestaCreateView(generic.CreateView):
     model = Richiesta
@@ -107,8 +134,6 @@ class RichiestaCreateView(generic.CreateView):
         form.fields['data_inizio'].widget.attrs.update({'class': 'datepicker'})
         return form
 
-    def get_success_url(self):
-        return reverse('RichiestaDetailView', kwargs={'richiesta': self.object.Richiesta})
 
 
 class RichiestaDetailView(generic.DetailView):
