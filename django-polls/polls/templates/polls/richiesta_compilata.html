@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{richiesta.nome}} {{richiesta.cognome}}</title>
+</head>
+<body>
+    <h1>Dati Inseriti:</h1>
+    <p> {{richiesta.nome}} </p><br>
+    <p> {{richiesta.cognome}} </p><br>
+    <p> {{richiesta.codice_fiscale}} </p><br>ù
+    <p> {{richiesta.marticola}} </p><br>
+    {% for prof in richiesta.tutor_set.all %}
+        <p> {{prof.nome}} {{prof.cognome}} </p><br>
+    {% endfor %}
+    <p> {{richiesta.sede}} </p><br>
+
+</body>
+</html>

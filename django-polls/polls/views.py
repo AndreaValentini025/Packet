@@ -107,3 +107,10 @@ class RichiestaCreateView(generic.CreateView):
         form.fields['data_inizio'].widget.attrs.update({'class': 'datepicker'})
         return form
 
+    def get_success_url(self):
+        return reverse('RichiestaDetailView', kwargs={'richiesta': self.object.Richiesta})
+
+
+class RichiestaDetailView(generic.DetailView):
+    model = Richiesta
+    template_name = 'polls/richiesta_compilata.html'
