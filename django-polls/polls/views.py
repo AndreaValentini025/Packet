@@ -78,6 +78,7 @@ class RichiestaForm(forms.ModelForm):
 class RichiestaCreateView(generic.CreateView):
     form_class = RichiestaForm
     model = Richiesta
+    template_name = 'polls/richiesta_new_form.html'
 
 
 """
