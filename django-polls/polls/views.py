@@ -135,7 +135,7 @@ class RichiestaCreateView(generic.CreateView):
         return form
 
     def get_success_url(self):
-        return reverse('richiestaComp', kwargs={'idRic': self.object.id})
+        return reverse('polls:richiestaComp', kwargs={'idRic': self.object.id})
 
 
 
