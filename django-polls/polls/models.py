@@ -50,6 +50,6 @@ class Richiesta(models.Model):
     data_inizio = models.DateField('data inizio attività')
     data_fine = models.DateField('data fine attività')
     obiettivi = models.TextField()
-    autocertificazione = models.FileField(upload_to='uploads/% Y/% m/% d/')
+    autocertificazione = models.FileField(upload_to='uploads/%Y/%m/%d/')
 
 
