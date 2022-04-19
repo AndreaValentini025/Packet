@@ -94,7 +94,7 @@ class RichiestaCreateView(generic.CreateView):
 
 
 """
-
+"""
 def createRichiesta(request):
     if request.method == 'POST':
         if request.POST.get('autocertificazione') and request.POST.get('matricola'):
@@ -120,7 +120,7 @@ def createRichiesta(request):
     else:
         return render(request, 'polls/modulo')
 
-
+"""
 class RichiestaCreateView(generic.CreateView):
     model = Richiesta
     fields = ['nome','cognome','codice_fiscale','matricola','tutor','sede','durata','data_inizio','data_fine','obiettivi','autocertificazione']
@@ -133,6 +133,9 @@ class RichiestaCreateView(generic.CreateView):
         form.fields['data_fine'].widget.attrs.update({'class': 'datepicker'})
         form.fields['data_inizio'].widget.attrs.update({'class': 'datepicker'})
         return form
+
+    def get_success_url(self):
+        return reverse('richiestaComp', kwargs={'idRic': self.object.id})
 
 
 
