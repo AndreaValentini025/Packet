@@ -47,8 +47,8 @@ class Richiesta(models.Model):
     tutor = models.ForeignKey(Professore, on_delete=models.DO_NOTHING)
     sede = models.CharField(max_length=254)
     durata = models.IntegerField()
-    data_inizio = models.DateTimeField('data inizio attività')
-    data_fine = models.DateTimeField('data fine attività')
+    data_inizio = models.DateField('data inizio attività')
+    data_fine = models.DateField('data fine attività')
     obiettivi = models.TextField()
     autocertificazione = models.FileField(upload_to='uploads/% Y/% m/% d/')
 
