@@ -8,8 +8,15 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'Moduli/style.css' %}">
     <title>Richiesta Attività Progettuale</title>
+    <script>
+        function update_fields(){
+            document.getElementById("id_data_inizio").type="date";
+            document.getElementById("id_data_fine").type="date";
+        }
+
+    </script>
 </head>
-<body>
+<body onload="update_fields()">
     <form method="post">
         {% csrf_token %}
 
