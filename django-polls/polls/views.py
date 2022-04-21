@@ -4,7 +4,6 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django import forms
-import ipywidgets as widgets
 
 from django.contrib import messages
 
@@ -121,22 +120,25 @@ def createRichiesta(request):
         return render(request, 'polls/modulo')
 
 """
+
+
 class RichiestaCreateView(generic.CreateView):
     model = Richiesta
-    fields = ['nome','cognome','codice_fiscale','matricola','tutor','sede','durata','data_inizio','data_fine','obiettivi','autocertificazione']
+    fields = ['nome','cognome','codice_fiscale','matricola',
+              'tutor','sede','durata','data_inizio','data_fine','obiettivi','autocertificazione']
     template_name = 'polls/richiesta_new_form.html'
 
     def get_form(self, form_class=None):
         if form_class is None:
             form_class = self.get_form_class()
         form = super(RichiestaCreateView, self).get_form(form_class)
+
         form.fields['data_fine'].widget.attrs.update({'class': 'datepicker'})
         form.fields['data_inizio'].widget.attrs.update({'class': 'datepicker'})
         return form
 
     def get_success_url(self):
         return reverse('polls:richiestaComp', kwargs={'idRic': self.object.id})
-
 
 
 class RichiestaDetailView(generic.DetailView):
