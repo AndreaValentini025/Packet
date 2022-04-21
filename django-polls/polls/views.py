@@ -138,7 +138,7 @@ class RichiestaCreateView(generic.CreateView):
         return form
 
     def get_success_url(self):
-        return HttpResponseRedirect('polls/static_success.html')
+        return HttpResponseRedirect('/polls/static_success.html')
         #return reverse('polls:richiestaComp', kwargs={'idRic': self.object.id})
 
 
