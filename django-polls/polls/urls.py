@@ -12,5 +12,6 @@ urlpatterns = [
     path('modulo/', views.RichiestaCreateView.as_view(), name='richiesta'),
     #path('datiInseriti/', views.createRichiesta, name='datiInseriti'),
     path('richiestaComp/', views.RichiestaDetailView.as_view(),name="richiestaComp"),
-    path('success/',views.success, name='success')
+    path('success/',views.success, name='success'),
+    path('archivio/', views.RichiestaListView.as_view(), name="archivio_richieste")
 ]

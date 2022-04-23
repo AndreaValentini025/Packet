@@ -59,69 +59,6 @@ def modulo(request):
     return render(request, 'polls/paginaProva.html')
 
 
-"""
-class RichiestaForm(forms.ModelForm):
-    class Meta:
-        model = Richiesta
-        fields = ['nome','cognome','codice_fiscale','matricola','tutor','sede',
-                  'durata','data_inizio','data_fine','obiettivi','autocertificazione']
-        widgets = {
-            'data_inizio': widgets.DatePicker(
-                            description='Data Inizio Attività',
-                            disabled=False,
-                            attrs={
-                                'label_tag' : 'Data Inizio Attività',
-                                'help_text' : ''
-                            }
-
-                        ),
-            'data_fine': widgets.DatePicker(
-                            description='Data Fine Attività',
-                            disabled=False,
-                            attrs={
-                                'label_tag': 'Data Fine Attività',
-                                'help_text': ''
-                            }
-                        )
-        }
-
-
-class RichiestaCreateView(generic.CreateView):
-    form_class = RichiestaForm
-    model = Richiesta
-    template_name = 'polls/richiesta_new_form.html'
-
-
-"""
-"""
-def createRichiesta(request):
-    if request.method == 'POST':
-        if request.POST.get('autocertificazione') and request.POST.get('matricola'):
-            richiesta = Richiesta()
-            richiesta.id= request.POST.get('id')
-            richiesta.nome =request.POST.get('nome')
-            richiesta.cognome =request.POST.get('cognome')
-            richiesta.codice_fiscale =request.POST.get('codice_fiscale')
-            richiesta.matricola = request.POST.get('matricola')
-            richiesta.tutor = request.POST.get('tutor')
-            richiesta.sede = request.POST.get('sede')
-            richiesta.durata = request.POST.get('durata')
-            richiesta.data_inizio =request.POST.get('data_inizio')
-            richiesta.data_fine = request.POST.get('data_fine')
-            richiesta.obiettivi = request.POST.get('obiettivi')
-            richiesta.autocertificazione=request.FILES.get('autocertificazione')
-
-            richiesta.save()
-
-            messages.success(request, "La tua richiesta è stata inserita correttamente")
-
-            return HttpResponseRedirect(reverse("polls:datiInseriti",args=(richiesta.id,)))
-    else:
-        return render(request, 'polls/modulo')
-
-"""
-
-
 class RichiestaCreateView(generic.CreateView):
     model = Richiesta
     fields = ['nome','cognome','codice_fiscale','matricola',
@@ -139,11 +76,16 @@ class RichiestaCreateView(generic.CreateView):
 
     def get_success_url(self):
         return reverse('polls:success')
-        #return reverse('polls:richiestaComp', kwargs={'idRic': self.object.id})
 
 
 def success(request):
     return render(request, 'polls/static_success.html')
+
+
+class RichiestaListView(generic.ListView):
+    model = Richiesta
+    template_name = 'polls/lista_richieste.html'
+    context_object_name = 'richieste_totali'
 
 
 class RichiestaDetailView(generic.DetailView):

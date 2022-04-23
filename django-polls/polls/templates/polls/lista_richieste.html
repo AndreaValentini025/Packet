@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Archivio Richieste</title>
+</head>
+<body>
+    <h1>Richieste da gestire</h1>
+    <ul>
+    {% for r in richieste_totali %}
+        <li>{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}</li>
+    {% empty %}
+        <li>Nessuna richiesta da gestire</li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>
