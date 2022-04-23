@@ -13,5 +13,6 @@ urlpatterns = [
     #path('datiInseriti/', views.createRichiesta, name='datiInseriti'),
     path('richiestaComp/', views.RichiestaDetailView.as_view(),name="richiestaComp"),
     path('success/',views.success, name='success'),
-    path('archivio/', views.RichiestaListView.as_view(), name="archivio_richieste")
+    path('archivio/', views.RichiestaListView.as_view(), name="archivio_richieste"),
+    path('gestione/<int:pk>/', views.GestioneRichiestaView.as_view(), name='gestione')
 ]

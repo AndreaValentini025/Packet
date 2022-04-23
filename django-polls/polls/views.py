@@ -88,6 +88,11 @@ class RichiestaListView(generic.ListView):
     context_object_name = 'richieste_totali'
 
 
+class GestioneRichiestaView(generic.DetailView):
+    model = Richiesta
+    template_name = 'polls/gestore_richieste.html'
+
+
 class RichiestaDetailView(generic.DetailView):
     model = Richiesta
     template_name = 'polls/richiesta_compilata.html'

@@ -8,7 +8,7 @@
     <h1>Richieste da gestire</h1>
     <ul>
     {% for r in richieste_totali %}
-        <li>{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}</li>
+        <li><a href="{% url 'polls:gestione' r.id %}">{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}</a></li>
     {% empty %}
         <li>Nessuna richiesta da gestire</li>
     {% endfor %}
