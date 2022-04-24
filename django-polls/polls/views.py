@@ -1,3 +1,4 @@
+import mimetypes
 import os
 
 from django.http import HttpResponseRedirect
@@ -6,8 +7,8 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django import forms
+from django.http.response import HttpResponse
 
-from django.contrib import messages
 
 from .models import Choice, Question, Richiesta, Professore
 
@@ -103,3 +104,22 @@ class GestioneRichiestaView(generic.DetailView):
 class RichiestaDetailView(generic.DetailView):
     model = Richiesta
     template_name = 'polls/richiesta_compilata.html'
+
+
+# Define function to download pdf file using template
+def download_file(request, filename='', matricola=''):
+    if filename != '':
+        # Define Django project base directory
+        filepath = os.path.abspath(filename)
+        path = open(filepath, 'rb')
+        # Set the mime type
+        mime_type, _ = mimetypes.guess_type(filepath)
+        # Set the return value of the HttpResponse
+        response = HttpResponse(path, content_type=mime_type)
+        # Set the HTTP header for sending to browser
+        response['Content-Disposition'] = "attachment; filename=autocert_%s" % matricola
+        # Return the response value
+        return response
+    else:
+        # Load the template
+        return render(request, 'polls/gestore_richieste.html')
