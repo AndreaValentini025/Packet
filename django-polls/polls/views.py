@@ -1,3 +1,5 @@
+import os
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
@@ -91,6 +93,11 @@ class RichiestaListView(generic.ListView):
 class GestioneRichiestaView(generic.DetailView):
     model = Richiesta
     template_name = 'polls/gestore_richieste.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['path'] = os.path.abspath(self.object.autocertificazione)
+        return context
 
 
 class RichiestaDetailView(generic.DetailView):
