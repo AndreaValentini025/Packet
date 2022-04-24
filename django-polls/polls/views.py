@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
+from django.contrib.auth import authenticate, login
 from django import forms
 
 from .models import Choice, Question, Richiesta, Professore
@@ -57,7 +58,6 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 
-@login_required
 def modulo(request):
     return render(request, 'polls/paginaProva.html')
 
@@ -107,3 +107,14 @@ class GestioneRichiestaView(generic.DetailView):
 class RichiestaDetailView(generic.DetailView):
     model = Richiesta
     template_name = 'polls/richiesta_compilata.html'
+
+
+def log(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return render(request, 'polls/static_success.html')
+    else:
+        return render(request, 'polls/error.html')
