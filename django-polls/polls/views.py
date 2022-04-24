@@ -96,7 +96,7 @@ class GestioneRichiestaView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['path'] = os.path.abspath(self.object.autocertificazione)
+        context['path'] = self.object.autocertificazione.path
         return context
 
 
