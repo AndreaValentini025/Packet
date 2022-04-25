@@ -44,7 +44,7 @@ class Richiesta(models.Model):
         (0, 'Richiesta non ancora visionata'),
         (1, 'Richiesta inviata al professore, in attesa della sua approvazione'),
         (2, 'Richiesta convalidata dal professore, in attesa della registrazione'),
-        (3, 'Richiesta evasa correttamente')
+        (3, 'Richiesta evasa correttamente'),
         (-1, 'Richiesta rifiutata')
     ]
     nome = models.CharField(max_length=40)
