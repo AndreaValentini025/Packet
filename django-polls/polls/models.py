@@ -40,6 +40,13 @@ class Professore(models.Model):
 
 
 class Richiesta(models.Model):
+    STATI_POSSIBILI = [
+        (0, 'Richiesta non ancora visionata'),
+        (1, 'Richiesta inviata al professore, in attesa della sua approvazione'),
+        (2, 'Richiesta convalidata dal professore, in attesa della registrazione'),
+        (3, 'Richiesta evasa correttamente')
+        (-1, 'Richiesta rifiutata')
+    ]
     nome = models.CharField(max_length=40)
     cognome = models.CharField(max_length=40)
     codice_fiscale = models.CharField(max_length=16)
@@ -51,5 +58,5 @@ class Richiesta(models.Model):
     data_fine = models.DateField('data fine attività')
     obiettivi = models.TextField()
     autocertificazione = models.FileField(upload_to='uploads/%Y/%m/%d/')
-
+    stato = models.IntegerField(choices=STATI_POSSIBILI, default=0, editable=False)
 

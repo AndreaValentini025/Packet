@@ -90,6 +90,13 @@ class RichiestaListView(generic.ListView):
     template_name = 'polls/lista_richieste.html'
     context_object_name = 'richieste_totali'
 
+    def get_context_data(self, **kwargs):
+        context = super(RichiestaListView, self).get_context_data(**kwargs)
+        context['richieste_nv'] = Richiesta.objects.filter(stato__exact=0)
+        context['richieste_ap'] = Richiesta.objects.filter(stato__exact=1)
+        context['richieste_ar'] = Richiesta.objects.filter(stato__exact=2)
+        return context
+
 
 class GestioneRichiestaView(generic.DetailView):
     model = Richiesta
