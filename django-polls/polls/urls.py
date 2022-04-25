@@ -4,7 +4,7 @@ from django.views.generic.base import TemplateView
 
 app_name = 'polls'
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('', views.IndexView.as_view(), name='index'),
     path("accounts/", include("django.contrib.auth.urls")),
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
