@@ -8,7 +8,6 @@
     <main>
         {% block content %}
         {% if user.is_authenticated %}
-            <p><a href="{% url 'polls:accounts:logout' %}">Logout</a></p>
             <h1>Richieste da gestire</h1>
             <ul>
             {% for r in richieste_totali %}
