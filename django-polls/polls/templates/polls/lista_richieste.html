@@ -8,7 +8,7 @@
     <main>
         {% block content %}
         {% if user.is_authenticated %}
-            <p><a href="{% url 'logout' %}">Log Out</a></p>
+            <p><a href="{% url 'logout' %}">Logout</a></p>
             <h1>Richieste da gestire</h1>
             <ul>
             {% for r in richieste_totali %}
@@ -19,7 +19,6 @@
             </ul>
         {% else %}
             <p>You are not logged in</p>
-            <a href="{% url 'login' %}">Log In</a>
         {% endif %}
         {% endblock %}
     </main>

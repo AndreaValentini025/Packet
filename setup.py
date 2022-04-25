@@ -5,7 +5,7 @@ with open("README.rst", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="polls-AndreVale025",
-    version="0.1.48",
+    version="0.1.49",
     author="Example Author",
     author_email="author@example.com",
     description="A small example package",
