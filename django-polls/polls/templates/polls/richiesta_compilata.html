@@ -5,21 +5,22 @@
     <title>{{richiesta.nome}} {{richiesta.cognome}}</title>
 </head>
 <body>
-    {% if user.is_authenticated %}
-        <p><a href="{% url 'logout' %}">Log Out</a></p>
-        <h1>Dati Inseriti:</h1>
-        <p> {{richiesta.nome}} </p><br>
-        <p> {{richiesta.cognome}} </p><br>
-        <p> {{richiesta.codice_fiscale}} </p><br>ù
-        <p> {{richiesta.matricola}} </p><br>
-        {% for prof in richiesta.tutor_set.all %}
-            <p> {{prof.nome}} {{prof.cognome}} </p><br>
-        {% endfor %}
-        <p> {{richiesta.sede}} </p><br>
-    {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %}
-
+    <main>
+        {% if user.is_authenticated %}
+            <p><a href="{% url 'logout' %}">Log Out</a></p>
+            <h1>Dati Inseriti:</h1>
+            <p> {{richiesta.nome}} </p><br>
+            <p> {{richiesta.cognome}} </p><br>
+            <p> {{richiesta.codice_fiscale}} </p><br>ù
+            <p> {{richiesta.matricola}} </p><br>
+            {% for prof in richiesta.tutor_set.all %}
+                <p> {{prof.nome}} {{prof.cognome}} </p><br>
+            {% endfor %}
+            <p> {{richiesta.sede}} </p><br>
+        {% else %}
+            <p>You are not logged in</p>
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </main>
 </body>
 </html>
