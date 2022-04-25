@@ -3,6 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <title>Archivio Richieste</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'Moduli/dashboard.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Moduli/base.css' %}">
+</head>
+<body class=" dashboard">
+    <main>
+        {% block content %}
+          {% if user.is_authenticated %}
+            <div class="module primo">
+                  <table>
+                    <caption>
+                      <a href="" class="section" title="Richieste non ancora visionate">Nuove Richieste</a>
+                    </caption>
+                    {% for r in richieste_nv %}
+                      <tr>
+                        <th scope="row"><a href="{% url 'polls:gestione' r.id %}" >{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}    <small>Data inserimento: {{ r.created_at }}</small></a></th>
+                      </tr>
+                    {% empty %}
+                      <tr>
+                        <th scope="row">Nessuna richiesta da gestire</th>
+                      </tr>
+                    {% endfor %}
+                  </table>
+            </div>
+
+            <div class="module secondo">
+                  <table>
+                    <caption>
+                      <a href="" class="section" title="Richieste in attesa di approvazione del professore">Richieste in attesa del professore</a>
+                    </caption>
+                    {% for r in richieste_ap %}
+                      <tr>
+                        <th scope="row"><a href="{% url 'polls:gestione' r.id %}" >{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}    <small>Data inoltro: {{ r.updated_at }}</small></a></th>
+                      </tr>
+                    {% empty %}
+                      <tr>
+                        <th scope="row">Nessuna richiesta in attesa</th>
+                      </tr>
+                    {% endfor %}
+                  </table>
+            </div>
+
+            <div class="module terzo">
+                  <table>
+                    <caption>
+                      <a href="" class="section" title="Richieste in attesa di caricamento in piattaforma">Richieste in attesa di inserimento</a>
+                    </caption>
+                    {% for r in richieste_ar %}
+                      <tr>
+                        <th scope="row"><a href="{% url 'polls:gestione' r.id %}" >{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}    <small>Data approvazione: {{ r.updated_at }}</small></a></th>
+                      </tr>
+                    {% empty %}
+                      <tr>
+                        <th scope="row">Nessuna richiesta in attesa</th>
+                      </tr>
+                    {% endfor %}
+                  </table>
+            </div>
+
+          {% else %}
+            <p>You are not logged in</p>
+          {% endif %}
+        {% endblock %}
+    </main>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Archivio Richieste</title>
 </head>
 <body>
     <main>
@@ -23,3 +119,6 @@
     </main>
 </body>
 </html>
+-->
+
+
