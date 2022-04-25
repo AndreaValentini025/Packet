@@ -107,14 +107,3 @@ class GestioneRichiestaView(generic.DetailView):
 class RichiestaDetailView(generic.DetailView):
     model = Richiesta
     template_name = 'polls/richiesta_compilata.html'
-
-
-def log(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return render(request, 'polls/static_success.html')
-    else:
-        return render(request, 'polls/error.html')

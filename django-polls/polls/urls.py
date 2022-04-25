@@ -1,10 +1,10 @@
-from django.urls import path
-from django.contrib.auth import views as auth_views
+from django.urls import path, include
 from . import views
 
 app_name = 'polls'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
+    path("accounts/", include("django.contrib.auth.urls")),
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
     path('<int:question_id>/vote/', views.vote, name='vote'),
@@ -15,5 +15,4 @@ urlpatterns = [
     path('success/', views.success, name='success'),
     path('archivio/', views.RichiestaListView.as_view(), name="archivio_richieste"),
     path('gestione/<int:pk>/', views.GestioneRichiestaView.as_view(), name='gestione'),
-    path('log/', views.log, name='log'),
 ]
