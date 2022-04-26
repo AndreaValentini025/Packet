@@ -23,6 +23,6 @@ small {
     font-weight: 200;
 }
 
-th{
+.dashboard .module table th{
     width:fit-content;
 }
