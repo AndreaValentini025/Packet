@@ -7,6 +7,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'Moduli/dashboard.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Moduli/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Moduli/list.css' %}">
 </head>
 <body class=" dashboard">
     <main>
@@ -19,7 +20,12 @@
                     </caption>
                     {% for r in richieste_nv %}
                       <tr>
-                        <th scope="row"><a href="{% url 'polls:gestione' r.id %}" >{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}    <small>Data inserimento: {{ r.created_at }}</small></a></th>
+                        <th scope="row">
+                            <a href="{% url 'polls:gestione' r.id %}" >{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}</a>
+                        </th>
+                        <th scope="row">
+                            <small>Data inserimento: {{ r.created_at }}</small>
+                        </th>
                       </tr>
                     {% empty %}
                       <tr>

@@ -1,0 +1,16 @@
+main {
+    margin: 5%
+}
+
+.primo, .secondo {
+    margin-right: 5%
+}
+
+.module {
+    width: 30%;
+    float: left
+}
+
+table {
+    width:100%
+}
