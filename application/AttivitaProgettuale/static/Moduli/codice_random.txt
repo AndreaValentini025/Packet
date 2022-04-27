@@ -1,0 +1,31 @@
+
+LISTA_RICHIESTE.HTML PRIMA DEL CSS
+
+<!--<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Archivio Richieste</title>
+</head>
+<body>
+    <main>
+        {% block content %}
+        {% if user.is_authenticated %}
+            <h1>Richieste da gestire</h1>
+            <ul>
+            {% for r in richieste_totali %}
+                <li><a href="{% url 'AttivitaProgettuale:gestione' r.id %}">{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}</a></li>
+            {% empty %}
+                <li>Nessuna richiesta da gestire</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>You are not logged in</p>
+        {% endif %}
+        {% endblock %}
+    </main>
+</body>
+</html>
+-->
+
+

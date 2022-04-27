@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accedi</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Moduli/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Moduli/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Moduli/responsive.css' %}">
+  </head>
+  <body class="login" data-admin-utc-offset="7200">
+    <div id="container">
+      <div id="header">
+        <div id="branding">
+          <h1 id="site-name">Login</h1>
+        </div>
+      </div>
+      <div class="main" id="main">
+        <div class="content">
+          <div id="content" class="colM">
+            <div id="content-main">
+              <form method="post" id="login-form">
+                {% csrf_token %}
+                <div class="form-row">
+                  <label for="id_username" class="required">Nome utente:</label> <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username">
+                </div>
+                <div class="form-row">
+                  <label for="id_password" class="required">Password:</label> <input type="password" name="password" autocomplete="current-password" required id="id_password">
+                  <input type="hidden" name="next" value="/AttivitaProgettuale/archivio/">
+                </div>
+                <div class="submit-row">
+                  <input type="submit" value="Accedi">
+                </div>
+              </form>
+            </div>
+            <br class="clear">
+          </div>
+          <div id="footer"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

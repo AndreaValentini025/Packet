@@ -1,5 +1,5 @@
 include LICENSE
 include README.rst
-global-include polls/static *
-global-include polls/templates *
+global-include AttivitaProgettuale/static *
+global-include AttivitaProgettuale/templates *
 recursive-include docs *

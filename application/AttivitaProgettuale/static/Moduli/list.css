@@ -1,0 +1,28 @@
+main {
+    margin: 5%;
+    font-size: 15px;
+}
+
+.primo, .secondo {
+    margin-right: 5%;
+}
+
+.module {
+    width: 30%;
+    float: left;
+}
+
+table {
+    width:100%;
+    border: 1px solid #264b5d;
+    border-top: 0px;
+}
+
+small {
+    float: right;
+    font-weight: 200;
+}
+
+.dashboard .module table th{
+    width:fit-content;
+}

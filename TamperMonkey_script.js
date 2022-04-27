@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  Compilazione automatica per richieste di attività progettuali
 // @author       Valentini Andrea & Artoni Alessandro
-// @match        http://127.0.0.1:8000/polls/inserimento/
+// @match        http://127.0.0.1:8000/AttivitaProgettuale/inserimento/
 // @match        https://placement.unimore.it/it/aziende/aiuto/
 // @grant        GM_setValue
 // @grant        GM_getValue
