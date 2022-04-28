@@ -27,7 +27,7 @@
                 Benvenuto,
                 <strong>{% firstof user.get_short_name user.get_username %}</strong>.
 
-                <a href="{% url 'AttivitaProgettuale:mylogout' %}">Esegui il Logout</a>
+                <a href="{% url 'AttivitaProgettuale:logout' %}">Esegui il Logout</a>
 
         </div>
         {% endif %}
