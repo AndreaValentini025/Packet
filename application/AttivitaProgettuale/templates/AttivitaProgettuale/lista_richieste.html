@@ -14,7 +14,7 @@
         {% block content %}
           {% if user.is_authenticated %}
             <div id="user-tools">
-                <a href="{% url 'login' %}">Annulla l'accesso</a>
+                <a href="{% url 'logout' %}">Annulla l'accesso</a>
             </div>
             <div class="module primo">
                   <table>
