@@ -6,7 +6,7 @@ from . import views
 app_name = 'AttivitaProgettuale'
 urlpatterns = [
     path('', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='/AttivitaProgettuale/'), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='AttivitaProgettuale/'), name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('inserimento/', views.modulo, name='modulo'),
     path('modulo/', views.RichiestaCreateView.as_view(), name='richiesta'),
