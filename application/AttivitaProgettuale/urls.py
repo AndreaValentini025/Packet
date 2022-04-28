@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'AttivitaProgettuale'
 urlpatterns = [
-    path('/', views.init, name='init'),
+    path('', views.init, name='init'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('inserimento/', views.modulo, name='modulo'),
     path('modulo/', views.RichiestaCreateView.as_view(), name='richiesta'),
