@@ -8,7 +8,7 @@ app_name = 'AttivitaProgettuale'
 urlpatterns = [
     #path('', TemplateView.as_view(template_name='registration/login.html'), name='init'),
     path('', auth_views.LoginView.as_view(), name='login'),
-    path('logout', auth_views.LogoutView.as_view(), name='logout', next_page=''),
+    path('logout', auth_views.LogoutView.as_view(), name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('inserimento/', views.modulo, name='modulo'),
     path('modulo/', views.RichiestaCreateView.as_view(), name='richiesta'),
