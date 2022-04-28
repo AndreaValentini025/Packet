@@ -13,6 +13,10 @@ from django import forms
 from .models import Richiesta, Professore
 
 
+def init(request):
+    return render(request, 'registration/login.html')
+
+
 def modulo(request):
     return render(request, 'AttivitaProgettuale/paginaProva.html')
 
