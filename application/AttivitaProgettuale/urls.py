@@ -1,9 +1,11 @@
 from django.urls import path, include
+from django.views.generic import TemplateView
+
 from . import views
 
 app_name = 'AttivitaProgettuale'
 urlpatterns = [
-    path('', views.init, name='init'),
+    path('', TemplateView.as_view(template_name='registration/login.html'), name='init'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('inserimento/', views.modulo, name='modulo'),
     path('modulo/', views.RichiestaCreateView.as_view(), name='richiesta'),
