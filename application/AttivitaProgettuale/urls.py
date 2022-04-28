@@ -6,7 +6,8 @@ from . import views
 
 app_name = 'AttivitaProgettuale'
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='registration/login.html'), name='init'),
+    #path('', TemplateView.as_view(template_name='registration/login.html'), name='init'),
+    path('', auth_views.LoginView.as_view(), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('inserimento/', views.modulo, name='modulo'),
     path('modulo/', views.RichiestaCreateView.as_view(), name='richiesta'),
