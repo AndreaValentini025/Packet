@@ -4,13 +4,20 @@
     <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
     <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
     <meta charset="UTF-8">
+     {% if not user.is_authenticated %}
+
+        <meta http-equiv = "refresh" content = "2; url = {% url 'AttivitaProgettuale:mylogin' %}" />
+    {% endif %}
+
     <title>Richiesta {{ richiesta.id}}</title>
 </head>
 <body>
     {% csrf_token %}
+
+    {% if user.is_authenticated %}
     <div id="content" class="colM">
       <h1>Visualizza richiesta</h1>
-      <h2>Richiesta object (1)</h2>
+      <h2>Richiesta {{ richiesta.id}}</h2>
       <div id="content-main">
         <div>
             <fieldset class="module aligned ">
@@ -92,5 +99,8 @@
       </div>
       <br class="clear">
     </div>
+    {% else %}
+            <p>You are not logged in</p>
+    {% endif %}
 </body>
 </html>
