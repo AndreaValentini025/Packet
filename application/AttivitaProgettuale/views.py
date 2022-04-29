@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.views import generic
@@ -59,8 +60,15 @@ class RichiestaDetailView(generic.DetailView):
     template_name = 'AttivitaProgettuale/richiesta_compilata.html'
 
 
-def update_state(request, pk):
-    richiesta = get_object_or_404(Richiesta, pk=pk)
-    richiesta.stato += 1
-    richiesta.save()
-    return reverse('AttivitaProgettuale:archivio_richieste')
+def update_state(request, richiesta_id):
+    try:
+        richiesta = get_object_or_404(Richiesta, pk=richiesta_id)
+    except(AttributeError):
+        return render(request, 'AttivitaProgettuale/gestore_richieste_new.html', {
+            'Richiesta': richiesta,
+            'error_message': "Solito errore",
+        })
+    else:
+        richiesta.stato += 1
+        richiesta.save()
+        return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))

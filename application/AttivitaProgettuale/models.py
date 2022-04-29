@@ -6,6 +6,9 @@ class Professore(models.Model):
     cognome = models.CharField(max_length=40)
     email = models.EmailField(max_length=254)
 
+    def __str__(self):
+        return self.nome + self.cognome
+
 
 class Richiesta(models.Model):
     STATI_POSSIBILI = [
