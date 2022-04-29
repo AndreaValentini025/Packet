@@ -54,6 +54,11 @@ class GestioneRichiestaView(generic.DetailView):
     template_name = 'AttivitaProgettuale/gestore_richieste_new.html'
 
 
+    def upgrade_state(self):
+        Richiesta.stato += 1
+        return Richiesta
+
+
 class RichiestaDetailView(generic.DetailView):
     model = Richiesta
     template_name = 'AttivitaProgettuale/richiesta_compilata.html'
