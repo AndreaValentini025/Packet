@@ -80,23 +80,14 @@
                         </div>
                     </div>
                     <div class="form-row field-autocertificazione">
-                        <a href="{{ richiesta.autocertificazione.url }}" required id="id_autocertificazione" download="auto_{{ richiesta.nome }}_{{ richiesta.cognome }}.docx"><button><b>AUTOCERTIFICAZIONE</b></button></a>
+                        <a href="{{ richiesta.autocertificazione.url }}" download="auto_{{ richiesta.nome }}_{{ richiesta.cognome }}.docx"><button><b>AUTOCERTIFICAZIONE</b></button></a>
                     </div>
                 </fieldset>
                 <div class="submit-row">
-                    <input type="submit" value="Salva" class="default" name="_save">
-                    <p class="deletelink-box"><a href="/admin/AttivitaProgettuale/richiesta/1/delete/" class="deletelink">Cancella</a></p>
-                    <input type="submit" value="Salva e aggiungi un altro" name="_addanother">
-                    <input type="submit" value="Salva e continua le modifiche" name="_continue">
+                    {% if richiesta.STATI_POSSIBILI[0] == 0 %}
+                        <input type="submit" value="Avanti" class="default" name="_avanti">
+                    <p class="deletelink-box"><a href="/admin/AttivitaProgettuale/richiesta/1/delete/" class="deletelink">Cancella</p>
                 </div>
-                <script id="django-admin-form-add-constants"
-                        src="/static/admin/js/change_form.js"
-                        async>
-                </script>
-                <script id="django-admin-prepopulated-fields-constants"
-                        src="/static/admin/js/prepopulate_init.js"
-                        data-prepopulated-fields="[]">
-                </script>
             </div>
         </form>
       </div>
