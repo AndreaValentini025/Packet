@@ -32,4 +32,3 @@ class Richiesta(models.Model):
 
     def upgrade_state(self):
         self.stato += 1
-        return self
