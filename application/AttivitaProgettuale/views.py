@@ -63,4 +63,4 @@ def update_state(request, request_id):
     richiesta = get_object_or_404(Richiesta, pk=request_id)
     richiesta.stato += 1
     richiesta.save()
-    return "window.location.href='"+reverse('AttivitaProgettuale:archivio_richieste')+"'"
+    return reverse('AttivitaProgettuale:archivio_richieste')
