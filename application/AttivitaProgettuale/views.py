@@ -54,14 +54,6 @@ class GestioneRichiestaView(generic.DetailView):
     template_name = 'AttivitaProgettuale/gestore_richieste.html'
 
 
-'''
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['path'] = self.object.autocertificazione.url.split('.')[0]
-        return context
-'''
-
-
 class RichiestaDetailView(generic.DetailView):
     model = Richiesta
     template_name = 'AttivitaProgettuale/richiesta_compilata.html'

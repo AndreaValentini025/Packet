@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Richiesta {{ richiesta.id}}</title>
+</head>
+<body>
+    <div id="content" class="colM">
+      <h1>Modifica richiesta</h1>
+      <h2>Richiesta object (1)</h2>
+      <div id="content-main">
+        <form enctype="multipart/form-data" method="post" id="richiesta_form" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="VyFJih2ucA44HoLWlxFuvFf8myZgI9BMhosXzsIW1xgBBzYGBOYG9enjOs9wJZG0">
+            <div>
+                <fieldset class="module aligned ">
+                    <div class="form-row field-nome">
+                        <div>
+                            <label class="required" for="id_nome">Nome:</label>
+                            <input type="text" value="{{ richiesta.nome }}" name="nome"  class="vTextField" maxlength="40" required id="id_nome" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row field-cognome">
+                        <div>
+                            <label class="required" for="id_cognome">Cognome:</label>
+                            <input type="text" name="cognome" value="{{ richiesta.cognome }}" class="vTextField" maxlength="40" required id="id_cognome" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row field-codice_fiscale">
+                        <div>
+                            <label class="required" for="id_codice_fiscale">Codice fiscale:</label>
+                            <input type="text" name="codice_fiscale" value="{{ richiesta.codice_fiscale }}" class="vTextField" maxlength="16" required id="id_codice_fiscale" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row field-matricola">
+                        <div>
+                            <label class="required" for="id_matricola">Matricola:</label>
+                            <input type="text" name="matricola" value="{{ richiesta.matricola }}" class="vTextField" maxlength="6" required id="id_matricola" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row field-tutor">
+                        <div>
+                            <label class="required">Tutor:</label>
+                            <input type="text" name="tutor_nome" value="{{ richiesta.tutor.nome }}" class="vTextField" maxlength="40" readonly>
+                            <input type="text" name="tutor_cognome" value="{{ richiesta.tutor.cognome }}" class="vTextField" maxlength="40" readonly>
+                            <input type="text" name="tutor_email" value="{{ richiesta.tutor.email }}" class="vTextField" maxlength="80" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row field-sede">
+                        <div>
+                            <label class="required" for="id_sede">Sede:</label>
+                            <input type="text" name="sede" value="{{ richiesta.sede }}" class="vTextField" maxlength="254" required id="id_sede" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row field-durata">
+                        <div>
+                            <label class="required" for="id_durata">Durata:</label>
+                            <input type="number" name="durata" value="{{ richiesta.durata }}" class="vIntegerField" required id="id_durata" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row field-data_inizio">
+                        <div>
+                            <label class="required" for="id_data_inizio">Data inizio attività:</label>
+                            <input type="text" name="data_inizio" value="{{ richiesta.data_inizio }}" class="vDateField" size="10" required id="id_data_inizio" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row field-data_fine">
+                        <div>
+                            <label class="required" for="id_data_fine">Data fine attività:</label>
+                            <input type="text" name="data_fine" value="{{ richiesta.data_fine }}" class="vDateField" size="10" required id="id_data_fine" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row field-obiettivi">
+                        <div>
+                            <label class="required" for="id_obiettivi">Obiettivi:</label>
+                            <textarea name="obiettivi" cols="40" rows="10" class="vLargeTextField" required id="id_obiettivi">
+                                {{ richiesta.obiettivi }}
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-row field-autocertificazione">
+                        <div>
+                            <label class="required" for="id_autocertificazione">Autocertificazione:</label>
+                            <a href="{{ richiesta.autocertificazione.url }}" required id="id_autocertificazione" download="auto_{{ richiesta.nome }}_{{ richiesta.cognome }}.docx"><button><b>AUTOCERTIFICAZIONE</b></button></a>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="submit-row">
+                    <input type="submit" value="Salva" class="default" name="_save">
+                    <p class="deletelink-box"><a href="/admin/AttivitaProgettuale/richiesta/1/delete/" class="deletelink">Cancella</a></p>
+                    <input type="submit" value="Salva e aggiungi un altro" name="_addanother">
+                    <input type="submit" value="Salva e continua le modifiche" name="_continue">
+                </div>
+                <script id="django-admin-form-add-constants"
+                        src="/static/admin/js/change_form.js"
+                        async>
+                </script>
+                <script id="django-admin-prepopulated-fields-constants"
+                        src="/static/admin/js/prepopulate_init.js"
+                        data-prepopulated-fields="[]">
+                </script>
+            </div>
+        </form>
+      </div>
+      <br class="clear">
+    </div>
+</body>
+</html>
