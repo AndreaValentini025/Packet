@@ -54,7 +54,6 @@ class RichiestaListView(generic.ListView):
         return context
 
 
-@login_required
 class GestioneRichiestaView(generic.DetailView):
     model = Richiesta
     template_name = 'AttivitaProgettuale/gestore_richieste_new.html'
