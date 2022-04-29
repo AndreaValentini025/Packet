@@ -60,7 +60,7 @@ class RichiestaDetailView(generic.DetailView):
 
 
 def update_state(request, pk):
-    richiesta = get_object_or_404(Richiesta, id=pk)
+    richiesta = get_object_or_404(Richiesta, pk=pk)
     richiesta.stato += 1
     richiesta.save()
     return reverse('AttivitaProgettuale:archivio_richieste')
