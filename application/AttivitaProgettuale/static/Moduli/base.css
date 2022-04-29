@@ -515,7 +515,7 @@ select[multiple] {
 
 /* FORM BUTTONS */
 
-.button, input[type=submit], input[type=button], .submit-row input, a.button, .submit-row .default{
+.button, input[type=submit], input[type=button], .submit-row input, a.button, .submit-row button.default{
     background: var(--button-bg);
     padding: 10px 15px;
     border: none;
@@ -539,7 +539,7 @@ a.button {
     opacity: 0.4;
 }
 
-.button.default, input[type=submit].default, .submit-row input.default {
+.button.default, input[type=submit].default, .submit-row input.default, .submit-row button.default {
     float: right;
     border: none;
     font-weight: 400;

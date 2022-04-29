@@ -267,7 +267,7 @@ body.popup .submit-row {
     margin: 0 0 0 5px;
 }
 
-.submit-row input.default {
+.submit-row button.default {
     margin: 0 0 0 8px;
     text-transform: uppercase;
 }
