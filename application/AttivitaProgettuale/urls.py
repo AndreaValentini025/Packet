@@ -13,5 +13,5 @@ urlpatterns = [
     path('success/', views.success, name='success'),
     path('archivio/', views.RichiestaListView.as_view(), name='archivio_richieste'),
     path('gestione/<int:pk>/', views.GestioneRichiestaView.as_view(), name='gestione'),
-    path('update/<int:pk>/', views.update_state(), name='update')
+    path('update/<int:pk>/', views.update_state, name='update')
 ]
