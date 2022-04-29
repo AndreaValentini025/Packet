@@ -29,3 +29,7 @@ class Richiesta(models.Model):
     stato = models.IntegerField(choices=STATI_POSSIBILI, default=0, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def upgrade_state(self):
+        self.stato += 1
+        return self
