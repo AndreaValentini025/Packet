@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.views import generic
 
@@ -57,3 +57,10 @@ class GestioneRichiestaView(generic.DetailView):
 class RichiestaDetailView(generic.DetailView):
     model = Richiesta
     template_name = 'AttivitaProgettuale/richiesta_compilata.html'
+
+
+def update_state(request, request_id):
+    richiesta = get_object_or_404(Richiesta, pk=request_id)
+    richiesta.stato += 1
+    richiesta.save()
+    return reverse('AttivitaProgettuale:archivio_richieste')
