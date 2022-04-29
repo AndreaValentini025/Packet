@@ -79,7 +79,9 @@
                             </textarea>
                         </div>
                     </div>
-                    <a href="{{ richiesta.autocertificazione.url }}" required id="id_autocertificazione" download="auto_{{ richiesta.nome }}_{{ richiesta.cognome }}.docx"><button><b>AUTOCERTIFICAZIONE</b></button></a>
+                    <div class="form-row field-autocertificazione">
+                        <a href="{{ richiesta.autocertificazione.url }}" required id="id_autocertificazione" download="auto_{{ richiesta.nome }}_{{ richiesta.cognome }}.docx"><button><b>AUTOCERTIFICAZIONE</b></button></a>
+                    </div>
                 </fieldset>
                 <div class="submit-row">
                     <input type="submit" value="Salva" class="default" name="_save">

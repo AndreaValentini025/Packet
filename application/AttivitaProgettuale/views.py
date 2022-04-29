@@ -51,7 +51,7 @@ class RichiestaListView(generic.ListView):
 
 class GestioneRichiestaView(generic.DetailView):
     model = Richiesta
-    template_name = 'AttivitaProgettuale/gestore_richieste_new.html'
+    template_name = 'AttivitaProgettuale/gestore_richieste.html'
 
 
 class RichiestaDetailView(generic.DetailView):
