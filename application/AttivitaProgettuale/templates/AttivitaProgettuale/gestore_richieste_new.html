@@ -84,7 +84,7 @@
                     </div>
                 </fieldset>
                 <div class="submit-row">
-                    {% if richiesta.STATI_POSSIBILI[0] == 0 %}
+                    {% if richiesta.stato == 0 %}
                         <input type="submit" value="Avanti" class="default" name="_avanti">
                     <p class="deletelink-box"><a href="/admin/AttivitaProgettuale/richiesta/1/delete/" class="deletelink">Cancella</p>
                 </div>
