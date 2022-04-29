@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
@@ -12,6 +13,6 @@ urlpatterns = [
     path('richiestaComp/', views.RichiestaDetailView.as_view(), name='richiestaComp'),
     path('success/', views.success, name='success'),
     path('archivio/', views.RichiestaListView.as_view(), name='archivio_richieste'),
-    path('gestione/<int:pk>/', views.GestioneRichiestaView.as_view(), name='gestione'),
+    path('gestione/<int:pk>/', login_required(views.GestioneRichiestaView.as_view()), name='gestione'),
     path('update/<int:richiesta_id>/', views.update_state, name='update')
 ]
