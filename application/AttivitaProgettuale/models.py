@@ -33,4 +33,5 @@ class Richiesta(models.Model):
 
     def upgrade_state(self):
         self.stato += 1
-        return reverse('AttivitaProgettuale:archivio_richieste')
+        self.save(update_fields=["stato"])
+        return "window.location.href='"+reverse('AttivitaProgettuale:archivio_richieste')+"'"
