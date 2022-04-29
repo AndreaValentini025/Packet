@@ -65,7 +65,7 @@ def update_state(request, richiesta_id):
         richiesta = get_object_or_404(Richiesta, pk=richiesta_id)
     except(AttributeError):
         return render(request, 'AttivitaProgettuale/gestore_richieste_new.html', {
-            'Richiesta': richiesta,
+            'rich': richiesta,
             'error_message': "Solito errore",
         })
     else:
