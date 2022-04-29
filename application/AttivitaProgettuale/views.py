@@ -70,7 +70,7 @@ def update_state(request, richiesta_id):
         print(richiesta.updated_at + datetime.timedelta(minutes=1))
         print(timezone.now())
         print(((richiesta.updated_at + datetime.timedelta(minutes=1)) < timezone.now()))
-        if (richiesta.updated_at + datetime.timedelta(minutes=1)) > timezone.now():
+        if (richiesta.updated_at + datetime.timedelta(minutes=1)) < timezone.now():
             richiesta.stato += 1
             richiesta.save()
 
