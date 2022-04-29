@@ -7,6 +7,7 @@
     <title>Richiesta {{ richiesta.id}}</title>
 </head>
 <body>
+    {% csrf_token %}
     <div id="content" class="colM">
       <h1>Visualizza richiesta</h1>
       <h2>Richiesta object (1)</h2>
