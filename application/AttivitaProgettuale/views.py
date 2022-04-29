@@ -1,3 +1,6 @@
+import datetime
+from django.utils import timezone
+
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
@@ -51,6 +54,7 @@ class RichiestaListView(generic.ListView):
         return context
 
 
+@login_required()
 class GestioneRichiestaView(generic.DetailView):
     model = Richiesta
     template_name = 'AttivitaProgettuale/gestore_richieste_new.html'
@@ -64,8 +68,10 @@ class RichiestaDetailView(generic.DetailView):
 def update_state(request, richiesta_id):
     if request.user.is_authenticated:
         richiesta = get_object_or_404(Richiesta, pk=richiesta_id)
-        richiesta.stato += 1
-        richiesta.save()
+        if (richiesta.updated_at + datetime.timedelta(minutes=1)) > timezone.now():
+            richiesta.stato += 1
+            richiesta.save()
+
         return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
     else:
         return HttpResponseRedirect(reverse('AttivitaProgettuale:mylogin'))
