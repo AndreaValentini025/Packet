@@ -61,14 +61,8 @@ class RichiestaDetailView(generic.DetailView):
 
 
 def update_state(request, richiesta_id):
-    try:
-        richiesta = get_object_or_404(Richiesta, pk=richiesta_id)
-    except(AttributeError):
-        return render(request, 'AttivitaProgettuale/gestore_richieste_new.html', {
-            'rich': richiesta,
-            'error_message': "Solito errore",
-        })
-    else:
-        richiesta.stato += 1
-        richiesta.save()
-        return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
+
+    richiesta = get_object_or_404(Richiesta, pk=richiesta_id)
+    richiesta.stato += 1
+    richiesta.save()
+    return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
