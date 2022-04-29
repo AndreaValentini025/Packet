@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Professore(models.Model):
@@ -32,3 +33,4 @@ class Richiesta(models.Model):
 
     def upgrade_state(self):
         self.stato += 1
+        return reverse('AttivitaProgettuale:archivio_richieste')
