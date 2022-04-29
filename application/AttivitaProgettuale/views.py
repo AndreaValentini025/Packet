@@ -59,8 +59,8 @@ class RichiestaDetailView(generic.DetailView):
     template_name = 'AttivitaProgettuale/richiesta_compilata.html'
 
 
-def update_state(request, request_id):
-    richiesta = get_object_or_404(Richiesta, id=request_id)
+def update_state(request, pk):
+    richiesta = get_object_or_404(Richiesta, id=pk)
     richiesta.stato += 1
     richiesta.save()
     return reverse('AttivitaProgettuale:archivio_richieste')
