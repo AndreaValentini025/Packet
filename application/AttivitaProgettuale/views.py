@@ -50,6 +50,7 @@ class RichiestaListView(generic.ListView):
         context['richieste_ar'] = Richiesta.objects.filter(stato__exact=2)
         return context
 
+
 class GestioneRichiestaView(generic.DetailView):
     model = Richiesta
     template_name = 'AttivitaProgettuale/gestore_richieste_new.html'
