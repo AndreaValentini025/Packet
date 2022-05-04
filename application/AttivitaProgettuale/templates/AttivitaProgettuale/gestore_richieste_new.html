@@ -48,8 +48,8 @@
                 <div class="form-row field-tutor">
                     <div>
                         <label class="required">Tutor:</label>
-                        <input type="text" name="tutor_nome" value="{{ richiesta.tutor.nome }}" class="vTextField" maxlength="40" readonly>
-                        <input type="text" name="tutor_cognome" value="{{ richiesta.tutor.cognome }}" class="vTextField" maxlength="40" readonly>
+                        <input type="text" name="tutor_nome" value="{{ richiesta.tutor.first_name }}" class="vTextField" maxlength="40" readonly>
+                        <input type="text" name="tutor_cognome" value="{{ richiesta.tutor.last_name }}" class="vTextField" maxlength="40" readonly>
                         <input type="text" name="tutor_email" value="{{ richiesta.tutor.email }}" class="vTextField" maxlength="80" readonly>
                     </div>
                 </div>
