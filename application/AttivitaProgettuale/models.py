@@ -1,8 +1,7 @@
 from django.db import models
 import datetime
 from django.utils import timezone
-from django.conf import settings
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import User
 
 
 class Professore(models.Model):
@@ -26,7 +25,7 @@ class Richiesta(models.Model):
     cognome = models.CharField(max_length=40)
     codice_fiscale = models.CharField(max_length=16)
     matricola = models.CharField(max_length=6)
-    tutor = models.ForeignKey(settings.AUTH_USER_MODEL.filter(groups__name__in=['Professore']), on_delete=models.DO_NOTHING)
+    tutor = models.ForeignKey(User.objects.filter(groups__name='Professore'), on_delete=models.DO_NOTHING)
     sede = models.CharField(max_length=254)
     durata = models.IntegerField()
     data_inizio = models.DateField('data inizio attività')
