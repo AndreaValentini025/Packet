@@ -15,17 +15,12 @@ class Professore(models.Model):
         return self.nome + ' ' + self.cognome
 
 
-def get_first_name(self):
-    return self.first_name
-
-
-def get_last_name(self):
-    return self.last_name
+def get_first_and_last_name(self):
+    return self.first_name + ' ' + self.last_name
 
 
 User = get_user_model()
-User.add_to_class("__str__", get_first_name)
-User.add_to_class("__str__", get_last_name)
+User.add_to_class("__str__", get_first_and_last_name)
 
 
 class Richiesta(models.Model):
