@@ -35,4 +35,4 @@ class Richiesta(models.Model):
     autocertificazione = models.FileField(upload_to='uploads/%Y/%m/%d/')
     stato = models.IntegerField(choices=STATI_POSSIBILI, default=0, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True, default=timezone.now()-datetime.timedelta(minutes=10))
+    updated_at = models.DateTimeField(auto_now=True)

@@ -67,7 +67,8 @@ class RichiestaDetailView(generic.DetailView):
 def update_state(request, richiesta_id):
     if request.user.is_authenticated:
         richiesta = get_object_or_404(Richiesta, pk=richiesta_id)
-        if (richiesta.updated_at + datetime.timedelta(minutes=5)) < timezone.now():
+
+        if (richiesta.updated_at + datetime.timedelta(minutes=5)) < timezone.now() or richiesta.updated_at == richiesta.created_at:
             richiesta.stato += 1
             richiesta.save()
 
