@@ -40,7 +40,7 @@
 
         {% for field in form %}
             <div class="form-row field-nome">
-                {{ field.label_tag class = "col-sm-3" }}
+                {{% render_field field.label_tag class="col-sm-3" %}}
 
             {% if form.is_bound %}
                 {% if field.errors %}
