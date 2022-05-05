@@ -10,7 +10,7 @@
     {% endif %}
     <title>Richiesta Attività Progettuale</title>
     <style type="text/css">
-        .col-sm-3 {
+        .col-sm {
             float: left;
             text-align: right;
             padding-right: 5px;
@@ -20,6 +20,10 @@
         function update_fields(){
             document.getElementById("id_data_inizio").type="date";
             document.getElementById("id_data_fine").type="date";
+            var labels = document.getElementsByTagName('LABEL');
+            for (var i = 0; i < labels.length; i++) {
+                labels[i].classList.add("col-sm")
+            }
         }
 
     </script>
