@@ -2,11 +2,12 @@
 {% load widget_tweaks %}
 <html lang="it">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'Moduli/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+    <meta charset="UTF-8">
+     {% if not user.is_authenticated %}
+        <meta http-equiv = "refresh" content = "2; url = {% url 'AttivitaProgettuale:mylogin' %}" />
+    {% endif %}
     <title>Richiesta Attività Progettuale</title>
     <script>
         function update_fields(){
@@ -31,7 +32,7 @@
         {% endif %}
 
         {% for field in form %}
-            <div class="form-group">
+            <div class="form-row field-nome">
                 {{ field.label_tag }}
 
             {% if form.is_bound %}
