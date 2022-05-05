@@ -40,7 +40,7 @@
     <main>
         {% block content %}
           {% if user.is_authenticated %}
-                {% if user.groups_name == 'UfficioStage' %}
+                {% if user.groups.all.0.name == 'UfficioStage' %}
                     <div class="module primo">
                           <table>
                             <caption>
@@ -105,7 +105,7 @@
                             {% endfor %}
                           </table>
                     </div>
-                {% elif user.groups_name == 'Professore' %}
+                {% elif user.groups.all.0.name == 'Professore' %}
                     <div class="module unico">
                           <table>
                             <caption>
