@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('stato', models.IntegerField(choices=[(0, 'Richiesta non ancora visionata'), (1, 'Richiesta inviata al professore, in attesa della sua approvazione'), (2, 'Richiesta convalidata dal professore, in attesa della registrazione'), (3, 'Richiesta evasa correttamente'), (-1, 'Richiesta rifiutata')], default=0, editable=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('tutor', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='AttivitaProgettuale.professore')),
+                ('tutor', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='auth.user')),
             ],
         ),
     ]
