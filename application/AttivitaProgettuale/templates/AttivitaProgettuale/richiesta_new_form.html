@@ -11,7 +11,9 @@
     <title>Richiesta Attività Progettuale</title>
     <style type="text/css">
         .col-sm-3 {
-            width: 25%;
+            float: left;
+            text-align: right;
+            padding-right: 5px;
         }
     </style>
     <script>
@@ -37,8 +39,8 @@
         {% endif %}
 
         {% for field in form %}
-            <div class="form-row field-nome col-sm-3">
-                {{ field.label_tag }}
+            <div class="form-row field-nome">
+                {{ field.label_tag class = "col-sm-3" }}
 
             {% if form.is_bound %}
                 {% if field.errors %}
