@@ -9,6 +9,11 @@
         <meta http-equiv = "refresh" content = "2; url = {% url 'AttivitaProgettuale:mylogin' %}" />
     {% endif %}
     <title>Richiesta Attività Progettuale</title>
+    <style type="text/css">
+        div .col-sm-3{
+            width: 25%;
+        }
+    </style>
     <script>
         function update_fields(){
             document.getElementById("id_data_inizio").type="date";
