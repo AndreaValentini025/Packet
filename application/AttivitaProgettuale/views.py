@@ -47,7 +47,7 @@ class RichiestaListView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super(RichiestaListView, self).get_context_data(**kwargs)
-        if self.request.user.groups.all[0].name == 'UfficioStage':
+        if self.request.user.groups.filter(name='UfficioStage').exists():
             context['richieste_new'] = Richiesta.objects.filter(stato__exact=1, tutor=self.request.user.id)
         else:
             context['richieste_nv'] = Richiesta.objects.filter(stato__exact=0)
