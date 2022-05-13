@@ -50,7 +50,7 @@
         {% endif %}
 
         {% for field in form %}
-            {% field.label_suffix="" %}
+            {{ field.label_suffix="" }}
             {% if field.name != "autocertificazione" %}
                 {% if field.name == "data_inizio" %}
                     <div class="form-row field-date" style="">
