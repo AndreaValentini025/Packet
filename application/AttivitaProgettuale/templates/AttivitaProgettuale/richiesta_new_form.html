@@ -51,7 +51,7 @@
 
         {% for field in form %}
             {% if field.name != "autocertificazione" %}
-                <div class="form-row field-{{ field.nome }}">
+                <div class="form-row field-{{ field.name }}">
                     {{ field.label_tag }}
 
                 {% if form.is_bound %}
@@ -76,22 +76,39 @@
             {% else %}
                 <div class="form-row field-{{ field.nome }}">
                     {{ field.label_tag }}
-
+                <table>
+                    <tbody>
+                    <tr style="height: auto;">
+                        <td>
+                             {% if form.is_bound %}
+                                {% if field.errors %}
+                                    {% render_field field class="form-control is-invalid" style="width: auto" %}
+                                {% else %}
+                                    {% render_field field class="form-control is-valid" style="width: auto" %}
+                                {% endif %}
+                            {% else %}
+                                {% render_field field class="form-control" style="width: auto" %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <p >Consapevole delle sanzioni penali, nel caso di dichiarazioni non veritiere,
+                                di formazione o uso di atti falsi, richiamate dall’art. 76 del D.P.R. 445 del 28 dicembre 2000
+                                <b>DICHIARO</b>
+                                di essere iscritto al Corso di Laurea {{ ci andrà il corso }} e di aver raggiunto i
+                                {{ 140 }} CFU necessari per l’attivazione dell’attività progettuale. </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
                 {% if form.is_bound %}
                     {% if field.errors %}
-                        {% render_field field class="form-control is-invalid" %}
                         {% for error in field.errors %}
                             <div class="invalid-feedback">
                                 {{ error }}
                             </div>
                         {% endfor %}
-                    {% else %}
-                        {% render_field field class="form-control is-valid" %}
                     {% endif %}
-                {% else %}
-                    {% render_field field class="form-control" %}
                 {% endif %}
-
                 {% if field.help_text %}
                     <small class="form-text text-muted">{{ field.help_text }}</small>
                 {% endif %}
