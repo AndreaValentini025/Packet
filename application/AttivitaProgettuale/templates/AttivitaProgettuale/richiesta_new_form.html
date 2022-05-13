@@ -82,12 +82,12 @@
                         <td style="vertical-align: middle;">
                              {% if form.is_bound %}
                                 {% if field.errors %}
-                                    {% render_field field class="form-control is-invalid" style="width: auto" required %}
+                                    {% render_field field class="form-control is-invalid" style="width: auto" required="true" %}
                                 {% else %}
-                                    {% render_field field class="form-control is-valid" style="width: auto" required %}
+                                    {% render_field field class="form-control is-valid" style="width: auto" required="true" %}
                                 {% endif %}
                             {% else %}
-                                {% render_field field class="form-control" style="width: auto" required %}
+                                {% render_field field class="form-control" style="width: auto" required="true" %}
                             {% endif %}
                         </td>
                         <td>
