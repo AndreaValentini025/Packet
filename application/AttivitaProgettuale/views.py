@@ -47,15 +47,9 @@ class RichiestaListView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super(RichiestaListView, self).get_context_data(**kwargs)
-        if self.request.user.groups.filter(name='Professore').exists():
-            context['richieste_new'] = Richiesta.objects.filter(stato__exact=1, tutor__exact=self.request.user.id)
-        else:
-            context['richieste_nv'] = Richiesta.objects.filter(stato__exact=0)
-            context['richieste_ap'] = Richiesta.objects.filter(stato__exact=1)
-            context['richieste_ar'] = Richiesta.objects.filter(stato__exact=2)
+        context['richieste_nv'] = Richiesta.objects.filter(stato__exact=0)
+        context['richieste_v'] = Richiesta.objects.filter(stato__exact=1)
         return context
-
-
 
 
 class GestioneRichiestaView(generic.DetailView):
@@ -72,7 +66,8 @@ def update_state(request, richiesta_id):
     if request.user.is_authenticated:
         richiesta = get_object_or_404(Richiesta, pk=richiesta_id)
 
-        if (richiesta.updated_at + datetime.timedelta(minutes=5)) < timezone.now() or richiesta.updated_at == richiesta.created_at:
+        if (richiesta.updated_at + datetime.timedelta(minutes=5)) < timezone.now() or\
+                richiesta.updated_at == richiesta.created_at:
             richiesta.stato += 1
             richiesta.save()
 

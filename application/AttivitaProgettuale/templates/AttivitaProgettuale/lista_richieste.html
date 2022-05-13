@@ -25,7 +25,7 @@
         {% if user.is_authenticated %}
         <div id="user-tools">
                 Benvenuto,
-                <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+                <strong>{% firstof user.get_username %}</strong>.
 
                 <a href="{% url 'AttivitaProgettuale:logout' %}">Esegui il Logout</a>
 
@@ -40,96 +40,29 @@
     <main>
         {% block content %}
           {% if user.is_authenticated %}
-                {% if user.groups.all.0.name == 'UfficioStage' %}
-                    <div class="module primo">
-                          <table>
-                            <caption>
-                              <a href="" class="section" title="Richieste non ancora visionate">Nuove Richieste</a>
-                            </caption>
-                            {% for r in richieste_nv %}
-                              <tr>
-                                <th scope="row">
-                                    <a href="{% url 'AttivitaProgettuale:gestione' r.id %}" >{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}</a>
-                                </th>
-                                <th scope="row">
-                                    <small>Data inserimento: {{ r.created_at }}</small>
-                                </th>
-                              </tr>
-                            {% empty %}
-                              <tr>
-                                <th scope="row">Nessuna richiesta da gestire</th>
-                              </tr>
-                            {% endfor %}
-                          </table>
-                    </div>
 
-                    <div class="module secondo">
-                          <table>
-                            <caption>
-                              <a href="" class="section" title="Richieste in attesa di approvazione del professore">Richieste in attesa del professore</a>
-                            </caption>
-                            {% for r in richieste_ap %}
-                              <tr>
-                                  <th scope="row">
-                                      <a href="{% url 'AttivitaProgettuale:gestione' r.id %}" >{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}</a>
-                                  </th>
-                                  <th scope="row">
-                                      <small>Data inoltro: {{ r.updated_at }}</small>
-                                  </th>
-                              </tr>
-                            {% empty %}
-                              <tr>
-                                <th scope="row">Nessuna richiesta in attesa</th>
-                              </tr>
-                            {% endfor %}
-                          </table>
-                    </div>
+                <div class="module primo">
+                      <table>
+                        <caption>
+                          <a href="" class="section" title="Richieste non ancora visionate">Nuove Richieste</a>
+                        </caption>
+                        {% for r in richieste_nv %}
+                          <tr>
+                            <th scope="row">
+                                <a href="{% url 'AttivitaProgettuale:gestione' r.id %}" >{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}</a>
+                            </th>
+                            <th scope="row">
+                                <small>Data inserimento: {{ r.created_at }}</small>
+                            </th>
+                          </tr>
+                        {% empty %}
+                          <tr>
+                            <th scope="row">Nessuna richiesta da gestire</th>
+                          </tr>
+                        {% endfor %}
+                      </table>
+                </div>
 
-                    <div class="module terzo">
-                          <table>
-                            <caption>
-                              <a href="" class="section" title="Richieste in attesa di caricamento in piattaforma">Richieste in attesa di inserimento</a>
-                            </caption>
-                            {% for r in richieste_ar %}
-                              <tr>
-                                  <th scope="row">
-                                    <a href="{% url 'AttivitaProgettuale:gestione' r.id %}" >{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}</a>
-                                  </th>
-                                  <th scope="row">
-                                      <small>Data approvazione: {{ r.updated_at }}</small>
-                                  </th>
-                            {% empty %}
-                              <tr>
-                                <th scope="row">Nessuna richiesta in attesa</th>
-                              </tr>
-                            {% endfor %}
-                          </table>
-                    </div>
-                {% elif user.groups.all.0.name == 'Professore' %}
-                    <div class="module unico">
-                          <table>
-                            <caption>
-                              <a href="" class="section" title="Richieste non ancora visionate">Nuove Richieste</a>
-                            </caption>
-                            {% for r in richieste_new %}
-                              <tr>
-                                <th scope="row">
-                                    <a href="{% url 'AttivitaProgettuale:gestione' r.id %}" >{{ r.nome }} {{ r.cognome }} - {{ r.matricola}}</a>
-                                </th>
-                                <th scope="row">
-                                    <small>Data ricezione: {{ r.updated_at }}</small>
-                                </th>
-                              </tr>
-                            {% empty %}
-                              <tr>
-                                <th scope="row">Nessuna richiesta da gestire</th>
-                              </tr>
-                            {% endfor %}
-                          </table>
-                    </div>
-                {% else %}
-                    <p>Accedere con un utente appropriato, non si hanno i permessi per visualizzare i dati richiesti</p>
-                {% endif %}
           {% else %}
             <p>You are not logged in</p>
           {% endif %}

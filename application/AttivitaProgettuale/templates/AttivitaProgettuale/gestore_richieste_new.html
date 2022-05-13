@@ -85,17 +85,11 @@
                         </textarea>
                     </div>
                 </div>
-                <div class="form-row field-autocertificazione">
-                    <a href="{{ richiesta.autocertificazione.url }}" download="auto_{{ richiesta.nome }}_{{ richiesta.cognome }}.docx"><button><b>AUTOCERTIFICAZIONE</b></button></a>
-                </div>
+
             </fieldset>
             <div class="submit-row">
                 {% if richiesta.stato == 0 %}
                     <input type="submit" value="Invia la Richiesta al Professore" class="default" name="_inviaProf" onclick="window.location.href='{% url 'AttivitaProgettuale:update' richiesta.id %}'" />
-                {% elif richiesta.stato == 1 %}
-                    <input type="submit" value="Approva Richiesta" class="default" name="_approva" onclick="window.location.href='{% url 'AttivitaProgettuale:update' richiesta.id %}'" />
-                {% elif richiesta.stato == 2 %}
-                    <input type="submit" value="Approva Richiesta" class="default" name="_convalida" onclick="window.location.href='{% url 'AttivitaProgettuale:update' richiesta.id %}'" />
                 {% endif %}
                 <p class="deletelink-box"><a href="/admin/AttivitaProgettuale/richiesta/1/delete/" class="deletelink">Cancella</a></p>
             </div>

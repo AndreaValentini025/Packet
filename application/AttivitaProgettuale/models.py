@@ -26,10 +26,7 @@ User.add_to_class("__str__", get_first_and_last_name)
 class Richiesta(models.Model):
     STATI_POSSIBILI = [
         (0, 'Richiesta non ancora visionata'),
-        (1, 'Richiesta inviata al professore, in attesa della sua approvazione'),
-        (2, 'Richiesta convalidata dal professore, in attesa della registrazione'),
-        (3, 'Richiesta evasa correttamente'),
-        (-1, 'Richiesta rifiutata')
+        (1, 'Richiesta approvata'),
     ]
     nome = models.CharField(max_length=40)
     cognome = models.CharField(max_length=40)
@@ -42,7 +39,8 @@ class Richiesta(models.Model):
     data_inizio = models.DateField('data inizio attività')
     data_fine = models.DateField('data fine attività')
     obiettivi = models.TextField()
-    autocertificazione = models.FileField(upload_to='uploads/%Y/%m/%d/')
+    autocertificazione = models.BooleanField(default=False)
     stato = models.IntegerField(choices=STATI_POSSIBILI, default=0, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
