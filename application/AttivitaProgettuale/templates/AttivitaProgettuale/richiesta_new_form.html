@@ -79,15 +79,15 @@
                 <table>
                     <tbody>
                     <tr style="height: auto;">
-                        <td>
+                        <td style="vertical-align: middle;">
                              {% if form.is_bound %}
                                 {% if field.errors %}
-                                    {% render_field field class="form-control is-invalid" style="width: auto" %}
+                                    {% render_field field class="form-control is-invalid" style="width: auto" required %}
                                 {% else %}
-                                    {% render_field field class="form-control is-valid" style="width: auto" %}
+                                    {% render_field field class="form-control is-valid" style="width: auto" required %}
                                 {% endif %}
                             {% else %}
-                                {% render_field field class="form-control" style="width: auto" %}
+                                {% render_field field class="form-control" style="width: auto" required %}
                             {% endif %}
                         </td>
                         <td>
@@ -115,8 +115,10 @@
             {% endif %}
 
         {% endfor %}
-
-         <button type="submit" class="btn btn-primary">Invia richiesta</button>
+        </div>
+        <div class="submit-row">
+            <button type="submit" class="btn btn-primary">Invia richiesta</button>
+        </div>
     </form>
 </body>
 </html>
