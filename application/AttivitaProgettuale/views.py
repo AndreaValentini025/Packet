@@ -27,7 +27,7 @@ class RichiestaCreateView(generic.CreateView):
         if form_class is None:
             form_class = self.get_form_class()
         form = super(RichiestaCreateView, self).get_form(form_class)
-
+        form.label_suffix = ""
         form.fields['data_fine'].widget.attrs.update({'class': 'datepicker'})
         form.fields['data_inizio'].widget.attrs.update({'class': 'datepicker'})
         return form

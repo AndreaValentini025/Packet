@@ -50,164 +50,162 @@
         {% endif %}
 
         {% for field in form %}
-            {% with field.label_suffix="" %}
-                {% if field.name != "autocertificazione" %}
-                    {% if field.name == "data_inizio" %}
-                        <div class="form-row field-date" style="">
-                            <label class="col-sm" style="">Data inizio e fine attività progettuale</label>
+            {% if field.name != "autocertificazione" %}
+                {% if field.name == "data_inizio" %}
+                    <div class="form-row field-date" style="">
+                        <label class="col-sm" style="">Data inizio e fine attività progettuale</label>
 
-                            {% if form.is_bound %}
-                                {% if field.errors %}
-                                    {% for error in field.errors %}
-                                        <div class="invalid-feedback">
-                                            {{ error }}
-                                        </div>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if field.help_text %}
-                                <small class="form-text text-muted">{{ field.help_text }}</small>
-                            {% endif %}
-
-                            <div style="display: flex;align-items: baseline;justify-content: flex-start;width: 50%;">
-                                <p style="width: fit-content;margin-left: 5%;">dal: </p>
-                                {% if form.is_bound %}
-                                    {% if field.errors %}
-                                        {% render_field field class="form-control is-invalid" style="width: 15%;" required="true" %}
-                                    {% else %}
-                                        {% render_field field class="form-control is-valid" style="width: 15%;" required="true" %}
-                                    {% endif %}
-                                {% else %}
-                                    {% render_field field class="form-control" style="width: 15%;" required="true" %}
-                                {% endif %}
-
-
-
-                    {% elif field.name == "data_fine" %}
-
-                                <p style="margin-left: 5%;">al: </p>
-                                {% if form.is_bound %}
-                                    {% if field.errors %}
-                                        {% render_field field class="form-control is-invalid" style="width: 15%;" required="true" %}
-                                    {% else %}
-                                        {% render_field field class="form-control is-valid" style="width: 15%;" required="true" %}
-                                    {% endif %}
-                                {% else %}
-                                    {% render_field field class="form-control" style="width: 15%;" required="true" %}
-                                {% endif %}
-                            </div>
-                            {% if form.is_bound %}
-                                {% if field.errors %}
-                                    {% for error in field.errors %}
-                                        <div class="invalid-feedback">
-                                            {{ error }}
-                                        </div>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if field.help_text %}
-                                <small class="form-text text-muted">{{ field.help_text }}</small>
-                            {% endif %}
-                        </div>
-                    {% elif field.name == "durata" %}
-
-                            <div class="form-row field-{{ field.name }}">
-                                {{ field.label_tag }}
-                                <div style="width: 50%;display: flex;align-items: center;justify-content: flex-start;">
-                                    {% if form.is_bound %}
-                                        {% if field.errors %}
-                                            {% render_field field class="form-control is-invalid" style="width: 10%;text-align: center;" required="true" %}
-                                        {% else %}
-                                            {% render_field field class="form-control is-valid" style="width: 10%;text-align: center;" required="true" %}
-                                        {% endif %}
-                                    {% else %}
-                                        {% render_field field class="form-control" style="width: 10%;text-align: center;" required="true" %}
-                                    {% endif %}
-                                    <p style="width: fit-content;margin-left: 1%;">ore</p>
-
-                                </div>
-                                {% if form.is_bound %}
-                                    {% if field.errors %}
-                                        {% for error in field.errors %}
-                                            <div class="invalid-feedback">
-                                                {{ error }}
-                                            </div>
-                                        {% endfor %}
-                                    {% endif %}
-                                {% endif %}
-                                {% if field.help_text %}
-                                    <small class="form-text text-muted">{{ field.help_text }}</small>
-                                {% endif %}
-                            </div>
-
-                    {% else %}
-
-                        <div class="form-row field-{{ field.name }}">
-                            {{ field.label_tag }}
                         {% if form.is_bound %}
                             {% if field.errors %}
-                                {% render_field field class="form-control is-invalid" %}
                                 {% for error in field.errors %}
                                     <div class="invalid-feedback">
                                         {{ error }}
                                     </div>
                                 {% endfor %}
-                            {% else %}
-                                {% render_field field class="form-control is-valid" %}
                             {% endif %}
-                        {% else %}
-                            {% render_field field class="form-control" %}
                         {% endif %}
-
                         {% if field.help_text %}
                             <small class="form-text text-muted">{{ field.help_text }}</small>
                         {% endif %}
-                        </div>
-                    {% endif %}
 
-                {% else %}
-                    <div class="form-row field-{{ field.nome }}">
-                        {{ field.label_tag }}
-                    <table>
-                        <tbody>
-                        <tr style="height: auto;">
-                            <td style="vertical-align: middle;">
-                                 {% if form.is_bound %}
+                        <div style="display: flex;align-items: baseline;justify-content: flex-start;width: 50%;">
+                            <p style="width: fit-content;margin-left: 5%;">dal: </p>
+                            {% if form.is_bound %}
+                                {% if field.errors %}
+                                    {% render_field field class="form-control is-invalid" style="width: 15%;" required="true" %}
+                                {% else %}
+                                    {% render_field field class="form-control is-valid" style="width: 15%;" required="true" %}
+                                {% endif %}
+                            {% else %}
+                                {% render_field field class="form-control" style="width: 15%;" required="true" %}
+                            {% endif %}
+
+
+
+                {% elif field.name == "data_fine" %}
+
+                            <p style="margin-left: 5%;">al: </p>
+                            {% if form.is_bound %}
+                                {% if field.errors %}
+                                    {% render_field field class="form-control is-invalid" style="width: 15%;" required="true" %}
+                                {% else %}
+                                    {% render_field field class="form-control is-valid" style="width: 15%;" required="true" %}
+                                {% endif %}
+                            {% else %}
+                                {% render_field field class="form-control" style="width: 15%;" required="true" %}
+                            {% endif %}
+                        </div>
+                        {% if form.is_bound %}
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endif %}
+                        {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                        {% endif %}
+                    </div>
+                {% elif field.name == "durata" %}
+
+                        <div class="form-row field-{{ field.name }}">
+                            {{ field.label_tag }}
+                            <div style="width: 50%;display: flex;align-items: center;justify-content: flex-start;">
+                                {% if form.is_bound %}
                                     {% if field.errors %}
-                                        {% render_field field class="form-control is-invalid" style="width: auto" required="true" %}
+                                        {% render_field field class="form-control is-invalid" style="width: 10%;text-align: center;" required="true" %}
                                     {% else %}
-                                        {% render_field field class="form-control is-valid" style="width: auto" required="true" %}
+                                        {% render_field field class="form-control is-valid" style="width: 10%;text-align: center;" required="true" %}
                                     {% endif %}
                                 {% else %}
-                                    {% render_field field class="form-control" style="width: auto" required="true" %}
+                                    {% render_field field class="form-control" style="width: 10%;text-align: center;" required="true" %}
                                 {% endif %}
-                            </td>
-                            <td>
-                                <p style="width : 50%">Consapevole delle sanzioni penali, nel caso di dichiarazioni non veritiere,
-                                    di formazione o uso di atti falsi, richiamate dall’art. 76 del D.P.R. 445 del 28 dicembre 2000
-                                    <b>DICHIARO</b>
-                                    di essere iscritto al Corso di Laurea X e di aver raggiunto i
-                                    140 CFU necessari per l’attivazione dell’attività progettuale. </p>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                                <p style="width: fit-content;margin-left: 1%;">ore</p>
+
+                            </div>
+                            {% if form.is_bound %}
+                                {% if field.errors %}
+                                    {% for error in field.errors %}
+                                        <div class="invalid-feedback">
+                                            {{ error }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endif %}
+                            {% if field.help_text %}
+                                <small class="form-text text-muted">{{ field.help_text }}</small>
+                            {% endif %}
+                        </div>
+
+                {% else %}
+
+                    <div class="form-row field-{{ field.name }}">
+                        {{ field.label_tag }}
                     {% if form.is_bound %}
                         {% if field.errors %}
+                            {% render_field field class="form-control is-invalid" %}
                             {% for error in field.errors %}
                                 <div class="invalid-feedback">
                                     {{ error }}
                                 </div>
                             {% endfor %}
+                        {% else %}
+                            {% render_field field class="form-control is-valid" %}
                         {% endif %}
+                    {% else %}
+                        {% render_field field class="form-control" %}
                     {% endif %}
+
                     {% if field.help_text %}
                         <small class="form-text text-muted">{{ field.help_text }}</small>
                     {% endif %}
+                    </div>
                 {% endif %}
 
-            {% endfor %}
-        {% endwith %}
+            {% else %}
+                <div class="form-row field-{{ field.nome }}">
+                    {{ field.label_tag }}
+                <table>
+                    <tbody>
+                    <tr style="height: auto;">
+                        <td style="vertical-align: middle;">
+                             {% if form.is_bound %}
+                                {% if field.errors %}
+                                    {% render_field field class="form-control is-invalid" style="width: auto" required="true" %}
+                                {% else %}
+                                    {% render_field field class="form-control is-valid" style="width: auto" required="true" %}
+                                {% endif %}
+                            {% else %}
+                                {% render_field field class="form-control" style="width: auto" required="true" %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <p style="width : 50%">Consapevole delle sanzioni penali, nel caso di dichiarazioni non veritiere,
+                                di formazione o uso di atti falsi, richiamate dall’art. 76 del D.P.R. 445 del 28 dicembre 2000
+                                <b>DICHIARO</b>
+                                di essere iscritto al Corso di Laurea X e di aver raggiunto i
+                                140 CFU necessari per l’attivazione dell’attività progettuale. </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                {% if form.is_bound %}
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <div class="invalid-feedback">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+            {% endif %}
+
+        {% endfor %}
         </div>
         <div class="submit-row">
             <button type="submit" class="default">Invia richiesta</button>
