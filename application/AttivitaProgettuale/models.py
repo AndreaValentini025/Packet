@@ -15,7 +15,7 @@ class Studente(models.Model):
     cognome = models.CharField(max_length=40)
     codice_fiscale = models.CharField(max_length=16)
     matricola = models.CharField(max_length=6)
-    classe = models.CharField(choices=CLASSI_LAUREA)
+    classe = models.CharField(choices=CLASSI_LAUREA, max_length=2)
     email = models.EmailField(max_length=254)
 
     def __str__(self):
