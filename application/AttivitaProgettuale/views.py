@@ -6,8 +6,8 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.views import generic
 
-from .models import Richiesta, Professore
-
+from .models import Richiesta, Studente
+import requests
 
 def init(request):
     return render(request, 'registration/login.html')
@@ -31,6 +31,13 @@ class RichiestaCreateView(generic.CreateView):
         form.fields['data_fine'].widget.attrs.update({'class': 'datepicker'})
         form.fields['data_inizio'].widget.attrs.update({'class': 'datepicker'})
         return form
+
+    def get_context_data(self, **kwargs):
+        context = super(RichiestaListView, self).get_context_data(**kwargs)
+        queryparam={'nameOptions': 'boy_names'}
+        rsp = requests.get("http://names.drycodes.com/10")
+        context['lista_prof'] = rsp.json()
+        return context
 
     def get_success_url(self):
         return reverse('AttivitaProgettuale:success')

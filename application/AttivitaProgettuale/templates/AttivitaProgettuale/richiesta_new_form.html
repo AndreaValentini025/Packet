@@ -4,6 +4,11 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
     <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+
+
     <meta charset="UTF-8">
      {% if not user.is_authenticated %}
         <meta http-equiv = "refresh" content = "2; url = {% url 'AttivitaProgettuale:mylogin' %}" />
@@ -34,6 +39,19 @@
         }
 
     </script>
+    <script>
+  $( function() {
+    var availableTags = [
+        {% for names in lista_prof %}
+            "{{names}}",
+        {% endfor %}
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+
+  </script>
 </head>
 <body onload="update_fields()">
     <form method="post" enctype="multipart/form-data" >
@@ -138,6 +156,9 @@
                                 <small class="form-text text-muted">{{ field.help_text }}</small>
                             {% endif %}
                         </div>
+
+
+
 
                 {% else %}
 

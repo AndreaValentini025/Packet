@@ -7,7 +7,7 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    dependencies = []
+    dependencies = [ ('AttivitaProgettuale', '0001_initial'),]
 
     operations = [
         migrations.AlterField(

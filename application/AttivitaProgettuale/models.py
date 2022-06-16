@@ -6,9 +6,16 @@ from django.conf import settings
 from django.contrib.auth.models import Group
 
 
-class Professore(models.Model):
+class Studente(models.Model):
+    CLASSI_LAUREA = [
+        ('L', 'Laurea Triennale'),
+        ('LM', 'Laurea Magistrale'),
+    ]
     nome = models.CharField(max_length=40)
     cognome = models.CharField(max_length=40)
+    codice_fiscale = models.CharField(max_length=16)
+    matricola = models.CharField(max_length=6)
+    classe = models.CharField(choices=CLASSI_LAUREA)
     email = models.EmailField(max_length=254)
 
     def __str__(self):
@@ -28,12 +35,8 @@ class Richiesta(models.Model):
         (0, 'Richiesta non ancora visionata'),
         (1, 'Richiesta approvata'),
     ]
-    nome = models.CharField(max_length=40)
-    cognome = models.CharField(max_length=40)
-    codice_fiscale = models.CharField(max_length=16)
-    matricola = models.CharField(max_length=6)
-    tutor = models.ForeignKey(settings.AUTH_USER_MODEL, limit_choices_to={'groups__name': "Professore"},
-                              on_delete=models.DO_NOTHING)
+    studente= models.ForeignKey('Studente', on_delete=models.DO_NOTHING)
+    tutor = models.CharField(max_length=60)
     sede = models.CharField(max_length=254)
     durata = models.IntegerField()
     data_inizio = models.DateField('data inizio attività')
