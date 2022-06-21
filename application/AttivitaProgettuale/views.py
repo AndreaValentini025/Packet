@@ -19,8 +19,7 @@ def modulo(request):
 
 class RichiestaCreateView(generic.CreateView):
     model = Richiesta
-    #fields = ['nome', 'cognome', 'codice_fiscale', 'matricola',
-    #          'tutor', 'sede', 'durata', 'data_inizio', 'data_fine', 'obiettivi', 'autocertificazione']
+    fields = ['studente','tutor', 'sede', 'durata', 'data_inizio', 'data_fine', 'obiettivi', 'autocertificazione']
     template_name = 'AttivitaProgettuale/richiesta_new_form.html'
 
     def get_form(self, form_class=None):
