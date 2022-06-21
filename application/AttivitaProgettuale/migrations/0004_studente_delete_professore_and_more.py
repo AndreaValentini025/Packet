@@ -51,7 +51,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='richiesta',
             name='studente',
-            field=models.ForeignKey(default=django.utils.timezone.now, on_delete=django.db.models.deletion.DO_NOTHING, to='AttivitaProgettuale.studente'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='AttivitaProgettuale.studente'),
             preserve_default=False,
         ),
     ]
