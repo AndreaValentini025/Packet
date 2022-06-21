@@ -9,6 +9,7 @@ from django.views import generic
 from .models import Richiesta, Studente
 import requests
 
+
 def init(request):
     return render(request, 'registration/login.html')
 
@@ -33,7 +34,7 @@ class RichiestaCreateView(generic.CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(RichiestaCreateView, self).get_context_data(**kwargs)
-        queryparam={'nameOptions': 'boy_names'}
+        queryparam = {'nameOptions': 'boy_names'}
         rsp = requests.get("http://names.drycodes.com/10")
         context['lista_prof'] = rsp.json()
         return context

@@ -15,7 +15,7 @@ class Studente(models.Model):
     cognome = models.CharField(max_length=40)
     codice_fiscale = models.CharField(max_length=16)
     matricola = models.CharField(max_length=6)
-    classe = models.CharField( max_length=2, choices=CLASSI_LAUREA)
+    classe = models.CharField(max_length=2, choices=CLASSI_LAUREA)
     email = models.EmailField(max_length=254)
 
     def __str__(self):
@@ -35,7 +35,7 @@ class Richiesta(models.Model):
         (0, 'Richiesta non ancora visionata'),
         (1, 'Richiesta approvata'),
     ]
-    studente= models.ForeignKey('Studente', on_delete=models.DO_NOTHING)
+    studente = models.ForeignKey('Studente', on_delete=models.DO_NOTHING)
     tutor = models.CharField(max_length=60)
     sede = models.CharField(max_length=254)
     durata = models.IntegerField()
@@ -46,4 +46,3 @@ class Richiesta(models.Model):
     stato = models.IntegerField(choices=STATI_POSSIBILI, default=0, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
