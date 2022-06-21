@@ -33,7 +33,7 @@ class RichiestaCreateView(generic.CreateView):
         return form
 
     def get_context_data(self, **kwargs):
-        context = super(RichiestaListView, self).get_context_data(**kwargs)
+        context = super(RichiestaCreateView, self).get_context_data(**kwargs)
         queryparam={'nameOptions': 'boy_names'}
         rsp = requests.get("http://names.drycodes.com/10")
         context['lista_prof'] = rsp.json()
