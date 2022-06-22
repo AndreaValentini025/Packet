@@ -58,7 +58,7 @@
 <body onload="update_fields()">
     <form method="post" enctype="multipart/form-data" >
         {% csrf_token %}
-
+        {{ ctx }}
 
 
         {% if form.non_field_errors %}
