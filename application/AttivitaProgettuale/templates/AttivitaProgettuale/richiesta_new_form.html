@@ -56,11 +56,11 @@
   </script>
 </head>
 <body onload="update_fields()">
-    <form method="post" enctype="multipart/form-data" >
+
+        <form method="post" enctype="multipart/form-data" >
         {% csrf_token %}
-        {{ ctx }}
 
-
+            {{ self }}
         {% if form.non_field_errors %}
             <div class="alert alert-danger" role="alert">
                 {% for error in form.non_field_errors %}
@@ -68,6 +68,28 @@
                 {% endfor %}
             </div>
         {% endif %}
+
+            <div class="form-row field-Sname">
+                        {{ field.label_tag }}
+                    {% if form.is_bound %}
+                        {% if field.errors %}
+                            {% render_field field class="form-control is-invalid" %}
+                            {% for error in field.errors %}
+                                <div class="invalid-feedback">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            {% render_field field class="form-control is-valid" %}
+                        {% endif %}
+                    {% else %}
+                        {% render_field field class="form-control" %}
+                    {% endif %}
+
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    </div>
 
         {% for field in form %}
             {% if field.name != "autocertificazione" %}
@@ -234,5 +256,8 @@
             <button type="submit" name="_inviaDati" class="default" > Invia richiesta </button>
         </div>
     </form>
+
+
+
 </body>
 </html>
