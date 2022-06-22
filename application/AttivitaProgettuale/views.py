@@ -45,7 +45,7 @@ class RichiestaCreateView(generic.CreateView):
 
 def success(request):
     print(request)
-    print(request.POST)
+    print(request.GET)
     return render(request, 'AttivitaProgettuale/static_success.html')
 
 
