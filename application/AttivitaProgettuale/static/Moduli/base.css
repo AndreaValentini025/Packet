@@ -193,6 +193,10 @@ ul > li {
     padding: 1px 0;
 }
 
+ul.ui-autocomplete > li {
+    list-style-type: none;
+}
+
 li ul {
     margin-bottom: 0;
 }
