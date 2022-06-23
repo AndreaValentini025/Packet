@@ -1,4 +1,6 @@
 import datetime
+import os
+
 from django.utils import timezone
 
 from django.http import HttpResponseRedirect, HttpResponse
@@ -99,7 +101,9 @@ def generate_pdf(request):
     richiesta = Richiesta.objects.filter(studente__id__exact = student.id).order_by('-created_at')[0]
     context_dict = {
         "richiesta": richiesta,
+        "path": os.path.abspath(__file__)
     }
+    print(os.path.abspath(__file__))
     html = template.render(context_dict)
     result = BytesIO()
     pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
