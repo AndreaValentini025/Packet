@@ -5,7 +5,7 @@
     <title>{{richiesta.nome}} {{richiesta.cognome}}</title>
 </head>
 <body>
-    {{ load static }}
+    {% load static %}
     <img src="{% static 'Moduli/images/Sigillo2015.svg'%}" />
     <h1>Dati Inseriti:</h1>
     <p>NOME: {{richiesta.studente.user.first_name}} </p><br>
