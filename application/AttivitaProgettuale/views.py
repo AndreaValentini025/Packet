@@ -112,10 +112,8 @@ def generate_pdf(request):
         pdf = HttpResponse(result.getvalue(), content_type='application/pdf')
         response = HttpResponse(pdf, content_type='application/pdf')
         filename = "Richiesta_{}.pdf".format(student.matricola)
-        content = "inline; filename='{}'".format(filename)
-        download = request.GET.get("download")
-        if download:
-            content = "attachment; filename='{}'".format(filename)
+        #content = "inline; filename='{}'".format(filename)
+        content = "attachment; filename='{}'".format(filename)
         response['Content-Disposition'] = content
         return response
     return HttpResponse("Not found")
