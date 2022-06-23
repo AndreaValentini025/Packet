@@ -97,16 +97,12 @@ def generate_pdf(request):
     user = request.user
     student = Studente.objects.get(user__username__exact = user.username )
     richiesta = Richiesta.objects.filter(studente__id__exact = student.id).order_by('-created_at')[0]
-    print(richiesta)
     context_dict = {
         "richiesta": richiesta,
     }
-    print(context_dict)
     html = template.render(context_dict)
-    print(html)
     result = BytesIO()
-    print(result)
-    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result)
     if not pdf.err:
         pdf = HttpResponse(result.getvalue(), content_type='application/pdf')
         response = HttpResponse(pdf, content_type='application/pdf')
