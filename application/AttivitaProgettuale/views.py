@@ -105,11 +105,11 @@ def generate_pdf(request):
     pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
     if pdf:
         response = HttpResponse(pdf, content_type='application/pdf')
-        filename = "Richiesta_%s.pdf" % student.matricola
-        content = "inline; filename='%s'" % filename
+        filename = "Richiesta_{}.pdf".format(student.matricola)
+        content = "inline; filename='{}'".format(filename)
         download = request.GET.get("download")
         if download:
-            content = "attachment; filename='%s'" % filename
+            content = "attachment; filename='{}'".format(filename)
         response['Content-Disposition'] = content
         return response
     return HttpResponse("Not found")
