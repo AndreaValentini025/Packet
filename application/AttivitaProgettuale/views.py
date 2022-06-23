@@ -106,7 +106,10 @@ def generate_pdf(request):
     if pdf:
         response = HttpResponse(pdf, content_type='application/pdf')
         filename = "Richiesta_{}.pdf".format(student.matricola)
+        print(filename)
+        print(type(filename))
         content = "inline; filename='{}'".format(filename)
+        print(content)
         download = request.GET.get("download")
         if download:
             content = "attachment; filename='{}'".format(filename)
