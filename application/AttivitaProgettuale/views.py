@@ -90,25 +90,22 @@ def update_state(request, richiesta_id):
 
 
 
-        pdf = generate_pdf('template.html', context)
 
 
 def generate_pdf(request):
     template = 'template.html'
     user = request.user
-    student = Studente.objects.filter(user)
-    richiesta = Richiesta.objects.filter(student)
+    student = Studente.objects.get(user__username__exact = user.username )
+    richiesta = Richiesta.objects.filter(studente__id__exact = student.id).order_by(('created_at').desc())[0]
     context_dict = {
         "richiesta": richiesta,
     }
     html = template.render(context_dict)
     result = BytesIO()
     pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
-    if not pdf.err:
-        return HttpResponse(result.getvalue(), content_type='AttivitaProgettuale/pdf')
     if pdf:
-        response = HttpResponse(pdf, content_type='AttivitaProgettuale/pdf')
-        filename = "Invoice_%s.pdf" % "12341231"
+        response = HttpResponse(pdf, content_type='application/pdf')
+        filename = "Richiesta_%s.pdf" % student.matricola
         content = "inline; filename='%s'" % filename
         download = request.GET.get("download")
         if download:
