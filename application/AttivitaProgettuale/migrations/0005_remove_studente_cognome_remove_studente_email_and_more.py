@@ -28,11 +28,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='studente',
             name='user',
-            field=models.OneToOneField(default=5, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            field=models.OneToOneField( on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
         migrations.AlterField(
             model_name='richiesta',
             name='studente',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.DO_NOTHING, to='AttivitaProgettuale.studente'),
+            field=models.ForeignKey( on_delete=django.db.models.deletion.DO_NOTHING, to='AttivitaProgettuale.studente'),
         ),
     ]

@@ -12,7 +12,7 @@ class Studente(models.Model):
         ('L', 'Laurea Triennale'),
         ('LM', 'Laurea Magistrale'),
     ]
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=5)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     codice_fiscale = models.CharField(max_length=16)
     matricola = models.CharField(max_length=6)
     classe = models.CharField(max_length=2, choices=CLASSI_LAUREA)
@@ -34,7 +34,7 @@ class Richiesta(models.Model):
         (0, 'Richiesta non ancora visionata'),
         (1, 'Richiesta approvata'),
     ]
-    studente = models.ForeignKey('Studente', on_delete=models.DO_NOTHING, default=1)
+    studente = models.ForeignKey('Studente', on_delete=models.DO_NOTHING)
     tutor = models.CharField(max_length=60)
     sede = models.CharField(max_length=254)
     durata = models.IntegerField()
