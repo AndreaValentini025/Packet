@@ -47,7 +47,7 @@ class RichiestaCreateView(generic.CreateView):
         return context
 
     def get_success_url(self):
-        return reverse('AttivitaProgettuale:success')
+        return reverse('AttivitaProgettuale:generate')
 
 
 def success(request):
