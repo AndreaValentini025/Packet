@@ -1,9 +1,6 @@
 <html class=" audio video bgpositionxy boxshadow boxsizing"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>
 	Università degli studi di Modena e Reggio Emilia
-</title><link type="text/css" href="/css/bootstrap-3.4.1.css" rel="stylesheet" media="screen">
-<link type="text/css" href="/css/Default.css?v=20210623131049" rel="stylesheet" media="screen">
-<link type="text/css" href="/css/DefaultPrint.css?v=28" rel="stylesheet" media="print">
-
+</title>
         <style>
             body{
                 margin:0px;
@@ -13,7 +10,7 @@
 
     <link type="text/css" media="screen" href="/css/unimore.css?v=20171117175307" rel="stylesheet">
 <link rel="stylesheet" typeof="text/css" href="/css/pushy.css">
-    <link type="image/png" href="https://placement.unimore.it/img/unimore/Sigillo2015.svg" rel="icon">
+    <link type="image/png" href="Sigillo2015.svg" rel="icon">
     
     <style>
         .title{
@@ -22,13 +19,13 @@
     </style>
 </head>
     <body>
-        <form method="post" action="./?lang=it" onsubmit="javascript:return WebForm_OnSubmit();" id="theForm">
+        <form method="post" action="./?lang=it"  id="theForm">
     <div id="theme-container">
 		<div id="theme-top">
 	        <div id="header-container" class="masterPageHeader">
 		        <div id="sito-logo">
 			        <a href="http://www.unimore.it/" title="Vai alla Homepage del Portale di Ateneo">
-                        <img id="logoUnimore" src="https://placement.unimore.it/img/unimore/Sigillo2015.svg" alt="logo ateneo">
+                        <img id="logoUnimore" src="Sigillo2015.svg" alt="logo ateneo">
 			        </a>
 		        </div>
 		        <div id="sito-desc">
@@ -129,178 +126,6 @@
             </div>
         </div>
     </div>
-    <div id="EmailDiv" class="form-group">
-        <label for="Email" class="col-sm-3 control-label">
-            <label for="Email" id="EmailLabel">Email<span class="required">*</span></label>
-        </label>
-        <div class="col-sm-9">
-            <div class="col-sm-7">
-                <input name="ctl00$ctl00$body$PageContent$myContattaciAziende$Email" type="text" maxlength="50" id="Email" class="form-control input-sm">
-            </div>
-            <div class="col-sm-4 col-sm-offset-1 static-value">
-                <span data-val-controltovalidate="Email" data-val-errormessage="Campo obbligatorio" data-val-display="Dynamic" id="EmailRequired" class="requiredfield text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Campo obbligatorio</span>
-                <span data-val-controltovalidate="Email" data-val-errormessage="Formato email non valido" data-val-display="Dynamic" id="EmailRegExp" class="requiredfield text-danger" data-val="true" data-val-evaluationfunction="RegularExpressionValidatorEvaluateIsValid" data-val-validationexpression="^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|([0-9a-zA-Z]+[\w-]+\.)+[a-zA-Z]{2,10})$" style="display:none;">Formato email non valido</span>
-            </div>
-        </div>
-    </div>
-    <div id="TelefonoDiv" class="form-group">
-        <label for="Telefono" class="col-sm-3 control-label">
-            <label for="Telefono" id="TelefonoLabel">Telefono</label>
-        </label>
-        <div class="col-sm-9">
-            <div class="col-sm-7">
-                <input name="ctl00$ctl00$body$PageContent$myContattaciAziende$Telefono" type="text" maxlength="50" id="Telefono" class="form-control input-sm">
-            </div>
-        </div>
-    </div>
-    <div id="CellulareDiv" class="form-group">
-        <label for="Cellulare" class="col-sm-3 control-label">
-            <label for="Cellulare" id="CellulareLabel">Cellulare</label>
-        </label>
-        <div class="col-sm-9">
-            <div class="col-sm-7">
-                <input name="ctl00$ctl00$body$PageContent$myContattaciAziende$Cellulare" type="text" maxlength="50" id="Cellulare" class="form-control input-sm">
-            </div>
-        </div>
-    </div>
-
-    <div id="ArgomentoDiv" class="form-group">
-        <label for="Argomento" class="col-sm-3 control-label">
-            <label for="argomentiContatto" id="ArgomentoLabel">Argomento<span class="required">*</span></label>
-        </label>
-        <div class="col-sm-9">
-            <div class="col-sm-7">
-                <select name="ctl00$ctl00$body$PageContent$myContattaciAziende$argomentiContatto" id="argomentiContatto" class="input-sm">
-	<option value="-1"></option>
-	<option value="1">Recupero credenziali di accesso</option>
-	<option value="2">Disponibilità elenchi laureati</option>
-	<option value="3">Stipula convenzioni per tirocini</option>
-	<option value="4">Progetti formativi per tirocini</option>
-	<option value="5">Pubblicazione offerte di lavoro/stage</option>
-	<option value="6">Registrazione</option>
-	<option value="7">Partita Iva non valida</option>
-	<option value="8">Altro</option>
-
-</select>
-            </div>
-            <div class="col-sm-4 col-sm-offset-1 static-value">
-                <span data-val-controltovalidate="argomentiContatto" data-val-errormessage="Campo obbligatorio" data-val-display="Dynamic" id="ArgomentoValidator" class="requiredfield text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="-1" style="display:none;">Campo obbligatorio</span>
-            </div>
-        </div>
-    </div>
-    <div id="TestoDiv" class="form-group">
-        <label for="Testo" class="col-sm-3 control-label">
-            <label for="Testo" id="TestoLabel" maxlength="1000">Testo<span class="required">*</span></label>
-        </label>
-        <div class="col-sm-9">
-            <div class="col-sm-7">
-                <textarea name="ctl00$ctl00$body$PageContent$myContattaciAziende$Testo" rows="2" cols="20" id="Testo" class="form-control input-sm"></textarea>
-            </div>
-            <div class="col-sm-4 col-sm-offset-1 static-value">
-                <span data-val-controltovalidate="Testo" data-val-errormessage="Campo obbligatorio" data-val-display="Dynamic" id="TestoRequired" class="requiredfield text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="display:none;">Campo obbligatorio</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="InformativaDiv" class="form-group">
-		
-        <div style="border:1px solid #CCCCCC; height:100px; padding:10px;overflow: auto; background-color: #fff;" class="col-md-9 col-md-offset-2">
-            Premesso che la normativa in materia di protezione dei dati personali trova applicazione esclusivamente con riferimento ai dati relativi a persone fisiche, l'Ateneo garantisce che ogni trattamento è conforme alla normativa vigente e, ai sensi dell'art. 13 del Regolamento (UE) 2016/679, informa che:
-<br>
-<br> Soggetti del trattamento:
-<ul>
-<li>
-Titolare del trattamento: <a target="_blank" href="http://www.unimo.it/">Università degli Studi di MODENA e REGGIO EMILIA</a>;
-</li>
-<li>
-il Responsabile per la Protezione dei Dati (RPD), individuato alla pagina <a target="_blank" href="https://www.unimore.it/privacy.html">https://www.unimore.it/privacy.html</a>, può essere contattato all'indirizzo <a href="mailto:dpo@unimore.it">dpo@unimore.it</a>.
-</li>
-</ul>
-Finalità, base giuridica e conservazione dei dati forniti
-<ul>
-<li>
-i dati sono trattati esclusivamente per poter fornire all'utente il servizio di assistenza richiesto;
-</li>
-<li>
-il conferimento dei dati, contrassegnati con *, è necessario a fornire all'utente il servizio di assistenza, ragion per cui il loro mancato conferimento comporta l'impossibilità per l'ufficio Placement dell'Ateneo di offrirLe tale servizio;
-</li>
-<li>
-i dati conferiti sono trattati, ai sensi dell'art. 6, 1° comma, lett. b) del Regolamento (UE) 2016/679, in quanto strettamente necessari alla fornitura del servizio indicato e sono conservati per il tempo strettamente necessario all'espletamento della richiesta di assistenza, in ogni caso per un periodo non superiore ai 12 mesi dopo la chiusura della pratica di assistenza.
-</li>
-</ul>
-Destinatari o categorie di destinatari dei dati personali
-<ul>
-<li>
-per la fornitura dei servizi sopra indicati, possono avere accesso ai dati da Lei conferiti i seguenti soggetti o categorie di soggetti: il Consorzio Interuniversitario AlmaLaurea, in qualità di titolare autonomo del trattamento.
-</li>
-</ul>
-Esercizio dei diritti dell'interessato
-<ul>
-<li>
-può esercitare i diritti a Lei riconosciuti dalla vigente normativa in materia di protezione dei dati personali, tra cui il diritto di chiedere al titolare del trattamento l'accesso ai dati personali e la rettifica o la cancellazione degli stessi, la limitazione o opposizione al trattamento che La riguarda, oltre al diritto alla portabilità dei dati, nei limiti di cui agli artt. 15-21 del Regolamento (UE) 2016/679;
-</li>
-<li>
-ai sensi dell'art. 77 del Regolamento, qualora ritenga che il trattamento che La riguarda violi la normativa in materia di protezione dei dati personali, Lei ha diritto di proporre reclamo al Garante italiano per la protezione dei dati personali ovvero all'autorità di controllo dello Stato membro Ue in cui risiede abitualmente, lavora ovvero del luogo ove si è verificata la presunta violazione;
-</li>
-<li>
-per l'esercizio dei Suoi diritti può rivolgersi al titolare del trattamento, inviando una comunicazione a <a href="mailto:placement@unimore.it">placement@unimore.it</a>
-</li>
-</ul>
-        </div>
-
-
-	</div>
-
-    <div class="form-group" style="margin-top:10px;" align="center">
-        <div id="grecap"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lf6UAwUAAAAAIJGIIjwSAlCw4sS_8phPHSIjUNj&amp;co=aHR0cHM6Ly9wbGFjZW1lbnQudW5pbW9yZS5pdDo0NDM.&amp;hl=it&amp;v=4rwLQsl5N_ccppoTAwwwMrEN&amp;size=normal&amp;cb=qumksht333" width="304" height="78" role="presentation" name="a-sc5wng2q68xv" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
-    </div>
-
-    
-
-    <div class="text-center buttons">
-        <div class="btn-group">
-            
-        </div>
-        <div class="btn-group">
-           </div>
-
-    </div>
-
-</div>
-
-
-
-  <script type="text/javascript">
-        $(function () {
-            $("#Send").click(function () {
-                myPageIsValid = Page_ClientValidate();
-                if (myPageIsValid) {
-                    if (!isDefined(grecaptcha) || grecaptcha.getResponse() == "") {
-                        return false;
-                    }
-                }
-                else {
-                    return false;
-                }
-
-            });
-        });
-
-        function ensureChecked(source, args) {
-            var cb = document.getElementById('InformativaLabel');
-            if (cb.checked == true) {
-                args.IsValid = true;
-            } else {
-                args.IsValid = false;
-            }
-        }
-
-        function autoResizeFeedback(){
-            window.scrollTo(0, 0);
-            window.parent.jQuery('#ifrm').height(200);
-            window.parent.jQuery(".ui-dialog").height(225);
-        }
-    </script>
 
                         <div id="poweredByDiv" class="static">
 
