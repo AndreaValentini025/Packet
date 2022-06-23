@@ -1,3 +1,4 @@
+{% load static %}
 <html class=" audio video bgpositionxy boxshadow boxsizing"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>
 	Università degli studi di Modena e Reggio Emilia
 </title>
@@ -10,7 +11,6 @@
 
     <link type="text/css" media="screen" href="/css/unimore.css?v=20171117175307" rel="stylesheet">
 <link rel="stylesheet" typeof="text/css" href="/css/pushy.css">
-    <link type="image/png" href="Sigillo2015.svg" rel="icon">
     
     <style>
         .title{
@@ -25,7 +25,7 @@
 	        <div id="header-container" class="masterPageHeader">
 		        <div id="sito-logo">
 			        <a href="http://www.unimore.it/" title="Vai alla Homepage del Portale di Ateneo">
-                        <img id="logoUnimore" src="Sigillo2015.svg" alt="logo ateneo">
+                        <img id="logoUnimore" src="{% static 'Moduli/images/Sigillo2015.svg %}" alt="logo ateneo">
 			        </a>
 		        </div>
 		        <div id="sito-desc">
