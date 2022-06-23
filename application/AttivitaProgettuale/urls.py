@@ -14,5 +14,5 @@ urlpatterns = [
     path('archivio/', views.RichiestaListView.as_view(), name='archivio_richieste'),
     path('gestione/<int:pk>/', views.GestioneRichiestaView.as_view(), name='gestione'),
     path('update/<int:richiesta_id>/', views.update_state, name='update'),
-    path('generate/<int:richiesta_id>/', views.generate_pdf, name='generate')
+    path('generate/', views.generate_pdf, name='generate')
 ]
