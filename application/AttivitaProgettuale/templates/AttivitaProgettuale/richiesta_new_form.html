@@ -10,9 +10,6 @@
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
 
     <meta charset="UTF-8">
-     {% if not user.is_authenticated %}
-        <meta http-equiv = "refresh" content = "2; url = {% url 'AttivitaProgettuale:mylogin' %}" />
-    {% endif %}
     <title>Richiesta Attività Progettuale</title>
     <style type="text/css">
         .col-sm {
@@ -56,11 +53,17 @@
   </script>
 </head>
 <body onload="update_fields()">
+    {% if not user.is_authenticated %}
+         <p>Devi fare il login prima di proseguire</p>
 
-        <form method="post" enctype="multipart/form-data" >
+    {% elif user.groups.all.0.name != 'Studente' %}
+        <p>Devi essere uno studente per poter inserire una richiesta</p>
+
+    {% else %}
+    <form method="post" enctype="multipart/form-data" >
         {% csrf_token %}
 
-            {{ self }}
+
         {% if form.non_field_errors %}
             <div class="alert alert-danger" role="alert">
                 {% for error in form.non_field_errors %}
@@ -68,28 +71,6 @@
                 {% endfor %}
             </div>
         {% endif %}
-
-            <div class="form-row field-Sname">
-                        {{ field.label_tag }}
-                    {% if form.is_bound %}
-                        {% if field.errors %}
-                            {% render_field field class="form-control is-invalid" %}
-                            {% for error in field.errors %}
-                                <div class="invalid-feedback">
-                                    {{ error }}
-                                </div>
-                            {% endfor %}
-                        {% else %}
-                            {% render_field field class="form-control is-valid" %}
-                        {% endif %}
-                    {% else %}
-                        {% render_field field class="form-control" %}
-                    {% endif %}
-
-                    {% if field.help_text %}
-                        <small class="form-text text-muted">{{ field.help_text }}</small>
-                    {% endif %}
-                    </div>
 
         {% for field in form %}
             {% if field.name != "autocertificazione" %}
@@ -253,11 +234,9 @@
         {% endfor %}
         </div>
         <div class="submit-row">
-            <button type="submit" name="_inviaDati" class="default" > Invia richiesta </button>
+            <button type="submit" name="_inviaDati" class="default" onclick="window.location.href='{% url 'AttivitaProgettuale:generate' %}'"> Invia richiesta </button>
         </div>
     </form>
-
-
-
+    {% endif %}
 </body>
 </html>

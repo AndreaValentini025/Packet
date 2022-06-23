@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.contrib.auth.models import User
 import datetime
 from django.utils import timezone
 from django.conf import settings
@@ -11,12 +12,10 @@ class Studente(models.Model):
         ('L', 'Laurea Triennale'),
         ('LM', 'Laurea Magistrale'),
     ]
-    nome = models.CharField(max_length=40)
-    cognome = models.CharField(max_length=40)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     codice_fiscale = models.CharField(max_length=16)
     matricola = models.CharField(max_length=6)
     classe = models.CharField(max_length=2, choices=CLASSI_LAUREA)
-    email = models.EmailField(max_length=254)
 
     def __str__(self):
         return self.nome + ' ' + self.cognome

@@ -1,0 +1,242 @@
+
+
+
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" ><![endif]-->
+
+<html>
+    <head><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>
+	Università degli studi di Modena e Reggio Emilia
+</title><link type="text/css" href="/css/bootstrap-3.4.1.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="/css/Default.css?v=20210623131049" rel="stylesheet" media="screen" />
+<link type="text/css" href="/css/DefaultPrint.css?v=28" rel="stylesheet" media="print" />
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+ <script type="text/javascript" src="/script/modernizr-3.5.0.min.js"></script> 
+<script type="text/javascript" src="/script/jquery/latest1.x/jquery.min.js"></script>
+<!--[if lt IE 9]><script type="text/javascript" src="/script/respond.js"></script><![endif]-->
+
+        <style>
+            body{
+                margin:0px;
+            }
+        </style>
+		<script>
+			//per ogni campo input dei form avente un regex validator eseguo il trim
+			if (typeof $ !== 'undefined') {
+				$(function () {
+					var trimFormFields = $('span[data-val-validationexpression]').toArray().map(function (i) { return $(i).attr("data-val-controltovalidate") }).filter(function (value, index, self) { return self.indexOf(value) === index });
+
+					trimFormFields.forEach(function (x) {
+						if ($("#" + x).attr("type") == "text" || $("#" + x).attr("type") == undefined) {
+							$("#" + x).change(function () { this.value = $.trim(this.value); })
+						}
+					});
+				});
+			}
+
+		</script>
+        <script src="/script/bootstrap-3.4.1.min.js"></script>
+<script type="text/javascript" src="/script/utility.js?v=28"></script>
+<script type="text/javascript"> var jsonGenericErrorMsg={"ERROR_URL":null,"ERROR_MESSAGE":null,"STACKTRACE":null,"CAUSE":null,"PARAMS":null,"GUID":"358ccd18-4ae3-4885-bae6-1fe0e01255ab","TIMESTAMP":"20220622055554","MD5":"bea4d590c4881a177b9b415ab6e1ad27","INVIA_MAIL":null,"URL_PAGE":null,"SOLUTION":null};</script>
+    <link type="text/css" media="screen" href="/css/unimore.css?v=20171117175307" rel="stylesheet" />
+<link rel="stylesheet" typeof="text/css" href="/css/pushy.css" />
+    <link type="image/png" href="/img/unimore/favicon.ico" rel="icon" />
+
+    
+    <style>
+        .title{
+            margin-top:20px !important;
+        }
+    </style>
+
+</head>
+    <body>
+        
+        
+
+        <form method="post" action="./?lang=it" onsubmit="javascript:return WebForm_OnSubmit();" id="theForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['theForm'];
+if (!theForm) {
+    theForm = document.theForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZAMBzdE2caB9Lr5OcY7UOhbBuG5LKA6LBLOWPjRmHA0g8E71_aUb2o8GIa_3gaIiqg2&amp;t=637814689746327080" type="text/javascript"></script>
+
+
+<script src="/script/jquery/latest1.x/jquery.empty.js" type="text/javascript"></script>
+<script src="/WebResource.axd?d=x2nkrMJGXkMELz33nwnakOO1pIG0c_N5OdOxPUYwmxTN8kngbgCUQA8T2ooDrDzBmkT1eJgFJb6H_W1n2VMrQBKJgRT4OrehgsYb990TKVY1&amp;t=637814689746327080" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="E9BACA43" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="d2vilCPbGrz5Nb9eUUF4KXvwasNJreb1JTy8WVqwj4T8N1TUwFx6ygL1rgKYqsAt71sL7ZJKy77XOmYdjnvERCtrH24D6IQ2Wn+CjS+vcAH3FXd5838jy39/57TuYWXGFAjUAHtWMn9pTpenDQtYI6c2tECO9WjfPLxUhAufiMEZh6UU77bFFP/hVrD81/65S8qX9a3Txm6/2wByk07ure4gG2Ojh0Ji/7Ml6Mr54QZ1lM6Hmt6qApCRE8vWTYsH2aS/5bepzNVvrNZDQ6UhC1hVg/XtJwP462H6y3/y69cpB6/UKDW3v3oHqisaxIvmxa1GjXiOaUy8d45WU13Gy73OecdVU99HK/XDEKRriNHugTmyTl/U4Wo/QTwV9UcoG41EG6TGFw0QR+DqsSjwBF5rinCkC8mDtp1im6fpD1CdSuPLjIeVL38aBJUFDJA8zgoBrX4M25LQcQrdsSZy3pDBprqMzdlE2mmF4IbERCLumZHhmJA8jEczAo4ZhCSQ3utlnvNG07MNzo/TtrhnoadKcY5LQDBXkVxrDmwGqHOLSQv+eSWnwqLzUQK7Bzx8" />
+</div>
+            <div id="WarningPagePanel" style="display:none"></div>
+
+            <!--[if lte IE 8]>
+            <div id="warningIE8" class="panel panel-danger" style="text-align: center; margin: 0px; background-color: #ebccd1">
+                <h5>Il tuo browser non è più supportato. Esegui l’upgrade a un browser moderno.</h5>
+            </div>
+            <![endif]-->
+            
+            
+<!-- pushy references START-->
+<div id="pushyWrapper">
+	
+    <nav class="pushy pushy-left">
+        <div class="sidebar">
+<div class="navigationMenu subMenu1">
+<h4 class="LinkTitoloSezione">
+<a role="link"    href = "http://www.unimore.it">Home ateneo</a>
+</h4>
+    <div class="navigationMenuContent">
+<a role="link"    href = "http://www.orientamento.unimore.it/site/home/orientamento-al-lavoro-e-placement.html">Placement</a>
+<a role="link"    href = "http://www.orientamento.unimore.it/site/home/orientamento-al-lavoro-e-placement.html">Aziende</a>
+    </div>
+</div><div class="navigationMenu subMenu1 pull-right">
+<a role="link"    href = "/ent/login.aspx?lang=it">Login</a>
+</div>
+</div>
+    </nav>
+    <div class="site-overlay"></div>
+    <div class="menu-btn">&#9776; Menu</div>
+
+</div>
+
+<!-- pushy references END-->
+
+<!-- logo per stampa annuncio -->
+<div id="logoPerStampaAnnuncio">
+    <table><tr><td><img src="/img/unimore/LogoConvenzione2.jpg" /></td><td><h2>Servizi Placement</h2></td></tr></table></div>
+<!-- fine logo per stampa annuncio -->
+
+    <div id="theme-container">
+		<div id="theme-top">
+	        <div id="header-container" class="masterPageHeader">
+		        <div id="sito-logo">
+			        <a href="http://www.unimore.it/" title="Vai alla Homepage del Portale di Ateneo">
+                        <img id="logoUnimore" src="/img/unimore/Sigillo2015.svg" alt="logo ateneo" />
+			        </a>
+		        </div>
+		        <div id="sito-desc">
+			        <h1>Servizi Placement</h1>
+		        </div>
+	        </div>
+		</div>
+                
+				<!-- <leftbar applicazione> -->
+<!-- </leftbar applicazione> -->
+			</div>
+                    <div id="main" class="theMain">
+                        
+    
+<div id="content-main">
+        <div>
+            <fieldset class="module aligned ">
+                <div class="form-row field-nome">
+                    <div>
+                        <label class="required" for="id_nome">Nome:</label>
+                        <input type="text" value="{{ richiesta.nome }}" name="nome"  class="vTextField" maxlength="40" required id="id_nome" readonly>
+                    </div>
+                </div>
+                <div class="form-row field-cognome">
+                    <div>
+                        <label class="required" for="id_cognome">Cognome:</label>
+                        <input type="text" name="cognome" value="{{ richiesta.cognome }}" class="vTextField" maxlength="40" required id="id_cognome" readonly>
+                    </div>
+                </div>
+                <div class="form-row field-codice_fiscale">
+                    <div>
+                        <label class="required" for="id_codice_fiscale">Codice fiscale:</label>
+                        <input type="text" name="codice_fiscale" value="{{ richiesta.codice_fiscale }}" class="vTextField" maxlength="16" required id="id_codice_fiscale" readonly>
+                    </div>
+                </div>
+                <div class="form-row field-matricola">
+                    <div>
+                        <label class="required" for="id_matricola">Matricola:</label>
+                        <input type="text" name="matricola" value="{{ richiesta.matricola }}" class="vTextField" maxlength="6" required id="id_matricola" readonly>
+                    </div>
+                </div>
+                <div class="form-row field-tutor">
+                    <div>
+                        <label class="required">Tutor:</label>
+                        <input type="text" name="tutor_nome" value="{{ richiesta.tutor.first_name }}" class="vTextField" maxlength="40" readonly>
+                        <input type="text" name="tutor_cognome" value="{{ richiesta.tutor.last_name }}" class="vTextField" maxlength="40" readonly>
+                        <input type="text" name="tutor_email" value="{{ richiesta.tutor.email }}" class="vTextField" maxlength="80" readonly>
+                    </div>
+                </div>
+                <div class="form-row field-sede">
+                    <div>
+                        <label class="required" for="id_sede">Sede:</label>
+                        <input type="text" name="sede" value="{{ richiesta.sede }}" class="vTextField" maxlength="254" required id="id_sede" readonly>
+                    </div>
+                </div>
+                <div class="form-row field-durata">
+                    <div>
+                        <label class="required" for="id_durata">Durata:</label>
+                        <input type="number" name="durata" value="{{ richiesta.durata }}" class="vIntegerField" required id="id_durata" readonly>
+                    </div>
+                </div>
+                <div class="form-row field-data_inizio">
+                    <div>
+                        <label class="required" for="id_data_inizio">Data inizio attività:</label>
+                        <input type="text" name="data_inizio" value="{{ richiesta.data_inizio }}" class="vDateField" size="10" required id="id_data_inizio" readonly>
+                    </div>
+                </div>
+                <div class="form-row field-data_fine">
+                    <div>
+                        <label class="required" for="id_data_fine">Data fine attività:</label>
+                        <input type="text" name="data_fine" value="{{ richiesta.data_fine }}" class="vDateField" size="10" required id="id_data_fine" readonly>
+                    </div>
+                </div>
+                <div class="form-row field-obiettivi">
+                    <div>
+                        <label class="required" for="id_obiettivi">Obiettivi:</label>
+                        <textarea name="obiettivi" cols="40" rows="10" class="vLargeTextField" required id="id_obiettivi">
+                            {{ richiesta.obiettivi }}
+                        </textarea>
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="submit-row">
+                {% if richiesta.stato == 0 %}
+                    <input type="submit" value="Invia la Richiesta al Professore" class="default" name="_inviaProf" onclick="window.location.href='{% url 'AttivitaProgettuale:update' richiesta.id %}'" />
+                {% endif %}
+                <p class="deletelink-box"><a href="/admin/AttivitaProgettuale/richiesta/1/delete/" class="deletelink">Cancella</a></p>
+            </div>
+        </div>
+      </div>
+      <br class="clear">
+    </div>
+        </form>
+    </body>
+</html>
