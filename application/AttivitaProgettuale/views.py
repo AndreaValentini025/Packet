@@ -93,7 +93,7 @@ def update_state(request, richiesta_id):
 
 
 def generate_pdf(request):
-    template = get_template('AttivitaProgettuale/richiesta_compilata.html')
+    template = get_template('AttivitaProgettuale/template.html')
     user = request.user
     student = Studente.objects.get(user__username__exact = user.username )
     richiesta = Richiesta.objects.filter(studente__id__exact = student.id).order_by('-created_at')[0]
@@ -102,7 +102,7 @@ def generate_pdf(request):
     }
     html = template.render(context_dict)
     result = BytesIO()
-    pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result)
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
     if not pdf.err:
         pdf = HttpResponse(result.getvalue(), content_type='application/pdf')
         response = HttpResponse(pdf, content_type='application/pdf')
