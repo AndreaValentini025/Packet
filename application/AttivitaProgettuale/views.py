@@ -107,7 +107,6 @@ def generate_pdf(request):
     result = BytesIO()
     print(result)
     pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
-    pdf = HttpResponse(result.getvalue(), content_type='application/pdf')
     if not pdf.err:
         pdf = HttpResponse(result.getvalue(), content_type='application/pdf')
         response = HttpResponse(pdf, content_type='application/pdf')
