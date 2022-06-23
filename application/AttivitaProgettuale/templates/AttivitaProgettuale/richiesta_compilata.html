@@ -6,12 +6,12 @@
 </head>
 <body>
     {% load static %}
-    <img src="{% static 'Moduli/images/Sigillo2015.svg'%}" />
+    <img src="{% static 'images/Sigillo2015.png'%}" />
     <h1>Dati Inseriti:</h1>
-    <p>NOME: {{richiesta.studente.user.first_name}} </p><br>
-    <p>COGNOME:  {{richiesta.studente.user.last_name}} </p><br>
-    <p>CODICE FISCALE: {{richiesta.studente.codice_fiscale}} </p><br>ù
-    <p>MATRICOLA: {{richiesta.studente.matricola}} </p><br>
+    <p>NOME: {{richiesta.studente.user.first_name}} </p>
+    <p>COGNOME:  {{richiesta.studente.user.last_name}} </p><
+    <p>CODICE FISCALE: {{richiesta.studente.codice_fiscale}} </p>
+    <p>MATRICOLA: {{richiesta.studente.matricola}} </p>
     <p>TUTOR: {{richiesta.tutor}}</p>
     <p>DATA INIZIO: {{richiesta.data_inizio}}</p>
     <p>DATA FINE {{richiesta.data_fine}}</p>
