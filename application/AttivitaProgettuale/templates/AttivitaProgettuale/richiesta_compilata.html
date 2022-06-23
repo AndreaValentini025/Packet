@@ -6,10 +6,10 @@
 </head>
 <body>
     {% load static %}
-    <img src="{% static 'images/Sigillo2015.png'%}" />
+    <img src="Sigillo2015.png" />
     <h1>Dati Inseriti:</h1>
     <p>NOME: {{richiesta.studente.user.first_name}} </p>
-    <p>COGNOME:  {{richiesta.studente.user.last_name}} </p><
+    <p>COGNOME:  {{richiesta.studente.user.last_name}} </p>
     <p>CODICE FISCALE: {{richiesta.studente.codice_fiscale}} </p>
     <p>MATRICOLA: {{richiesta.studente.matricola}} </p>
     <p>TUTOR: {{richiesta.tutor}}</p>
