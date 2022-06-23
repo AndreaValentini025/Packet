@@ -5,14 +5,21 @@
     <title>{{richiesta.nome}} {{richiesta.cognome}}</title>
 </head>
 <body>
+    {{ load static }}
+    <img src="{% static 'Moduli/images/Sigillo2015.svg'%}" />
     <h1>Dati Inseriti:</h1>
-    <p> {{richiesta.studente.user.first_name}} </p><br>
-    <p> {{richiesta.studente.user.last_name}} </p><br>
-    <p> {{richiesta.studente.codice_fiscale}} </p><br>ù
-    <p> {{richiesta.studente.matricola}} </p><br>
-    <p> {{richiesta.tutor}}</p>
-    <p> {{richiesta.data_inizio}}</p>
-    <p> {{richiesta.data_fine}}</p>
-    <p> {{richiesta.autocertificazione}} </p><br>
+    <p>NOME: {{richiesta.studente.user.first_name}} </p><br>
+    <p>COGNOME:  {{richiesta.studente.user.last_name}} </p><br>
+    <p>CODICE FISCALE: {{richiesta.studente.codice_fiscale}} </p><br>ù
+    <p>MATRICOLA: {{richiesta.studente.matricola}} </p><br>
+    <p>TUTOR: {{richiesta.tutor}}</p>
+    <p>DATA INIZIO: {{richiesta.data_inizio}}</p>
+    <p>DATA FINE {{richiesta.data_fine}}</p>
+    <p>AUTOCERTIFICAZIONE:
+        {% if richiesta.autocertificazione %}
+            <h2 style="color:green" >OK</h2>
+        {% else %}
+            <h2 style="color:red" >NOT GIVEN</h2>
+    </p>
 </body>
 </html>

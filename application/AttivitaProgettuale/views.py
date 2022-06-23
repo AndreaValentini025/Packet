@@ -93,7 +93,7 @@ def update_state(request, richiesta_id):
 
 
 def generate_pdf(request):
-    template = get_template('AttivitaProgettuale/template.html')
+    template = get_template('AttivitaProgettuale/richiesta_compilata.html')
     user = request.user
     student = Studente.objects.get(user__username__exact = user.username )
     richiesta = Richiesta.objects.filter(studente__id__exact = student.id).order_by('-created_at')[0]
