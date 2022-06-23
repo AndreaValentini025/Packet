@@ -6,13 +6,13 @@
 </head>
 <body>
     <h1>Dati Inseriti:</h1>
-    <p> {{richiesta.nome}} </p><br>
-    <p> {{richiesta.cognome}} </p><br>
-    <p> {{richiesta.codice_fiscale}} </p><br>ù
-    <p> {{richiesta.matricola}} </p><br>
-    {% for prof in richiesta.tutor_set.all %}
-        <p> {{prof.nome}} {{prof.cognome}} </p><br>
-    {% endfor %}
-    <p> {{richiesta.sede}} </p><br>
+    <p> {{richiesta.studente.user.first_name}} </p><br>
+    <p> {{richiesta.studente.user.last_name}} </p><br>
+    <p> {{richiesta.studente.codice_fiscale}} </p><br>ù
+    <p> {{richiesta.studente.matricola}} </p><br>
+    <p> {{richiesta.tutor}}</p>
+    <p> {{richiesta.data_inizio}}</p>
+    <p> {{richiesta.data_fine}}</p>
+    <p> {{richiesta.autocertificazione}} </p><br>
 </body>
 </html>
