@@ -5,7 +5,7 @@ with open("README.rst", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="AttivitaProgettuale-VAProject",
-    version="0.3.38",
+    version="0.3.39",
     author="Example Author",
     author_email="author@example.com",
     description="A small example package",

@@ -96,7 +96,7 @@ def generate_pdf(request):
     template = 'template.html'
     user = request.user
     student = Studente.objects.get(user__username__exact = user.username )
-    richiesta = Richiesta.objects.filter(studente__id__exact = student.id).order_by(('created_at').desc())[0]
+    richiesta = Richiesta.objects.filter(studente__id__exact = student.id).order_by('-created_at')[0]
     context_dict = {
         "richiesta": richiesta,
     }
