@@ -100,11 +100,9 @@ def generate_pdf(request):
     user = request.user
     student = Studente.objects.get(user__username__exact = user.username )
     richiesta = Richiesta.objects.filter(studente__id__exact = student.id).order_by('-created_at')[0]
-    print(os.path.join(os.path.abspath(__file__), '..\static\images'))
-    print(settings.BASE_DIR)
     context_dict = {
         "richiesta": richiesta,
-        "path": os.path.abspath(__file__)
+        "path": os.path.join(os.path.abspath(__file__), '..\static\images')
     }
 
     html = template.render(context_dict)
