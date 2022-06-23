@@ -5,7 +5,7 @@ with open("README.rst", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="AttivitaProgettuale-VAProject",
-    version="0.3.31",
+    version="0.3.32",
     author="Example Author",
     author_email="author@example.com",
     description="A small example package",
@@ -26,5 +26,5 @@ setuptools.setup(
 
     python_requires=">=3.6",
 
-    install_requires=["Django >= 4.0","django-widget-tweaks"]
+    install_requires=["Django >= 4.0","django-widget-tweaks",'requests>=2.28.0','xhtml2pdf>=0.2.8']
 )
