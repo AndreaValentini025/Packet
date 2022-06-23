@@ -18,7 +18,7 @@ class Studente(models.Model):
     classe = models.CharField(max_length=2, choices=CLASSI_LAUREA)
 
     def __str__(self):
-        return self.nome + ' ' + self.cognome
+        return self.user.first_name + ' ' + self.user.last_name
 
 
 def get_first_and_last_name(self):
