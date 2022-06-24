@@ -11,14 +11,23 @@
 
         <meta http-equiv = "refresh" content = "2; url = {% url 'AttivitaProgettuale:mylogin' %}" />
     {% endif %}
+
+    {% if user.groups.all.0.name != 'UfficioStage' %}
+        <meta http-equiv = "refresh" content = "2; url = {% url 'AttivitaProgettuale:mylogin' %}" />
+    {% endif %}
+
+
     <link rel="stylesheet" type="text/css" href="{% static 'Moduli/dashboard.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Moduli/base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Moduli/list.css' %}">
 </head>
 <body class=" dashboard">
+    {% if user.groups.all.0.name != 'UfficioStage' %}
+        <p>Devi appartenere all'ufficio stage per poter visualizzare tutte le richieste</p>
+    {% else %}
 
+    <div id="header">
 
-<div id="header">
         <div id="branding">
             <h1 id="site-name">Attività Progettuali UNIMORE</h1>
         </div>
@@ -68,6 +77,7 @@
           {% endif %}
         {% endblock %}
     </main>
+    {% endif %}
 </body>
 </html>
 
