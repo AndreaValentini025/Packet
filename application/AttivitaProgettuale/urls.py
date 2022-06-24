@@ -14,5 +14,6 @@ urlpatterns = [
     path('archivio/', views.RichiestaListView.as_view(), name='archivio_richieste'),
     path('gestione/<int:pk>/', views.GestioneRichiestaView.as_view(), name='gestione'),
     path('update/<int:richiesta_id>/', views.update_state, name='update'),
+    path('redirect/', views.next_page, name='redirect'),
     path('generate/', views.generate_pdf, name='generate')
 ]

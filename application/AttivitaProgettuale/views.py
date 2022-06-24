@@ -53,6 +53,13 @@ def success(request):
     return render(request, 'AttivitaProgettuale/static_success.html')
 
 
+def next_page(request):
+    if request.user.groups.all()[0].name == 'Studente':
+        return reverse('AttivitaProgettuale:modulo')
+    elif request.user.groups.all()[0].name == 'UfficioStage':
+        return reverse('AttivitaProgettuale:archivio')
+
+
 class RichiestaListView(generic.ListView):
     model = Richiesta
     template_name = 'AttivitaProgettuale/lista_richieste.html'
