@@ -1,7 +1,6 @@
 import datetime
 import os
 
-from django.conf import settings
 from django.utils import timezone
 
 from django.http import HttpResponseRedirect, HttpResponse
@@ -88,9 +87,6 @@ def update_state(request, richiesta_id):
         return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
     else:
         return HttpResponseRedirect(reverse('AttivitaProgettuale:mylogin'))
-
-
-
 
 
 def generate_pdf(request):
