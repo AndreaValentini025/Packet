@@ -25,9 +25,9 @@
                 </div>
                 <div class="form-row">
                   <label for="id_password" class="required">Password:</label> <input type="password" name="password" autocomplete="current-password" required id="id_password">
-                  {% if user.groups.all.0.name == 'Studente' %}
+                  {% if user.groups.all.0.name != 'Studente' %}
                     <input type="hidden" name="next" value="/AttivitaProgettuale/archivio/">
-                  {% elif user.groups.all.0.name == 'UfficioStage' %}
+                  {% elif user.groups.all.0.name != 'UfficioStage' %}
                     <input type="hidden" name="next" value="/AttivitaProgettuale/modulo/">
                   {% endif %}
                 </div>
