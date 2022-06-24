@@ -18,7 +18,7 @@
         <div class="content">
           <div id="content" class="colM">
             <div id="content-main">
-              <form method="post" id="login-form" onsubmit="window.location.href='{% url 'AttivitaProgettuale:redirect' %}'">
+              <form method="post" id="login-form">
                 {% csrf_token %}
                 <div class="form-row">
                   <label for="id_username" class="required">Nome utente:</label> <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username">
@@ -26,6 +26,7 @@
                 <div class="form-row">
                   <label for="id_password" class="required">Password:</label> <input type="password" name="password" autocomplete="current-password" required id="id_password">
                 </div>
+                <input type="hidden" name="next" value="/AttivitaProgettuale/redirect/">
                 <div class="submit-row">
                   <input type="submit" value="Accedi">
                 </div>
