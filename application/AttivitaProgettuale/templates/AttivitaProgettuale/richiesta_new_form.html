@@ -9,8 +9,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
 
-    {% if not user.is_authenticated or user.groups.all.0.name != 'Studente'%}
+    {% if not user.is_authenticated %}
 
+        <meta http-equiv = "refresh" content = "2; url = {% url 'AttivitaProgettuale:mylogin' %}" />
+    {% endif %}
+
+    {% if user.groups.all.0.name != 'Studente' %}
         <meta http-equiv = "refresh" content = "2; url = {% url 'AttivitaProgettuale:mylogin' %}" />
     {% endif %}
 
@@ -64,7 +68,6 @@
 
     {% elif user.groups.all.0.name != 'Studente' %}
         <p>Devi essere uno studente per poter inserire una richiesta</p>
-        <input type="hidden" name="next" value="/AttivitaProgettuale/modulo/">
 
     {% else %}
     <form method="post" enctype="multipart/form-data" >
