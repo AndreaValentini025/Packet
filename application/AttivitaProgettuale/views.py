@@ -57,7 +57,7 @@ def next_page(request):
     if request.user.groups.all()[0].name == 'Studente':
         return reverse('AttivitaProgettuale:modulo')
     elif request.user.groups.all()[0].name == 'UfficioStage':
-        return reverse('AttivitaProgettuale:archivio')
+        return reverse('AttivitaProgettuale:archivio_richieste')
 
 
 class RichiestaListView(generic.ListView):
