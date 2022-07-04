@@ -76,8 +76,7 @@ class GestioneRichiestaView(generic.DetailView):
     model = Richiesta
     template_name = 'AttivitaProgettuale/gestore_richieste_new.html'
 
-
-class GestioneLoginView(generic.TemplateView):
+class GestioneLoginView(generic.DetailView):
     model = Studente
     template_name = "AttivitaProgettuale/prova.html"
 
@@ -140,3 +139,10 @@ def generate_pdf(request):
         response['Content-Disposition'] = content
         return response
     return HttpResponse("Not found")
+
+
+def access(request):
+    qp = {
+        'next': reverse('AttivitaProgettuale:')
+    }
+    return HttpResponseRedirect('http://services.ing.unimore.it/tirocini/test', params=qp)

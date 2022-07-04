@@ -17,5 +17,6 @@ urlpatterns = [
     path('redirect/', views.next_page, name='redirect'),
     path('generate/', views.generate_pdf, name='generate'),
     path('<pk>/delete/', views.RichiestaDeleteView.as_view(), name='delete'),
-    path('prova/', views.GestioneLoginView.as_view(), name="prova")
+    path('prova/', views.GestioneLoginView.as_view(), name="prova"),
+    path('access/', views.access, name="access")
 ]
