@@ -82,7 +82,7 @@ class GestioneLoginView(generic.TemplateView):
     template_name = "AttivitaProgettuale/prova.html"
 
     def get_context_data(self, **kwargs):
-        context = super(RichiestaCreateView, self).get_context_data(**kwargs)
+        context = super(GestioneLoginView, self).get_context_data(**kwargs)
         rsp = requests.get("http://services.ing.unimore.it/tesisti/test")
         context['headers'] = rsp
         print(rsp)
