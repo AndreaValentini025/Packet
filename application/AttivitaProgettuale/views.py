@@ -43,8 +43,6 @@ class RichiestaCreateView(generic.CreateView):
         queryparam = {'nameOptions': 'boy_names'}
         rsp = requests.get("http://names.drycodes.com/10", params=queryparam)
         context['lista_prof'] = rsp.json()
-
-
         return context
 
     def get_success_url(self):
@@ -79,7 +77,7 @@ class GestioneRichiestaView(generic.DetailView):
     template_name = 'AttivitaProgettuale/gestore_richieste_new.html'
 
 
-class GestioneLoginView(generic.DetailView):
+class GestioneLoginView(generic):
     model = Studente
     template_name = "AttivitaProgettuale/prova.html"
 
