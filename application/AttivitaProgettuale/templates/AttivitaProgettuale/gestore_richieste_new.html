@@ -92,6 +92,9 @@
                 {% if richiesta.stato == 0 %}
                     <input type="submit" value="Invia la Richiesta al Professore" class="default" name="_inviaProf" onclick="window.location.href='{% url 'AttivitaProgettuale:update' richiesta.id %}'" />
                 {% endif %}
+                <form method="POST" action="{% url 'AttivitaProgettuale:delete' richiesta.id %}">
+                   {% csrf_token %}<input type="submit" class="deletelink-box deletelink" value="Cancella">
+                </form>
                 <p class="deletelink-box"><a href="{% url 'AttivitaProgettuale:delete' richiesta.id %}" class="deletelink">Cancella</a></p>
             </div>
         </div>
