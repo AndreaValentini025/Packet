@@ -25,33 +25,31 @@
                 <div class="form-row field-nome">
                     <div>
                         <label class="required" for="id_nome">Nome:</label>
-                        <input type="text" value="{{ richiesta.nome }}" name="nome"  class="vTextField" maxlength="40" required id="id_nome" readonly>
+                        <input type="text" value="{{ richiesta.studente.user.first_name }}" name="nome"  class="vTextField" maxlength="40" required id="id_nome" readonly>
                     </div>
                 </div>
                 <div class="form-row field-cognome">
                     <div>
                         <label class="required" for="id_cognome">Cognome:</label>
-                        <input type="text" name="cognome" value="{{ richiesta.cognome }}" class="vTextField" maxlength="40" required id="id_cognome" readonly>
+                        <input type="text" name="cognome" value="{{ richiesta.cognome.studente.user.last_name }}" class="vTextField" maxlength="40" required id="id_cognome" readonly>
                     </div>
                 </div>
                 <div class="form-row field-codice_fiscale">
                     <div>
                         <label class="required" for="id_codice_fiscale">Codice fiscale:</label>
-                        <input type="text" name="codice_fiscale" value="{{ richiesta.codice_fiscale }}" class="vTextField" maxlength="16" required id="id_codice_fiscale" readonly>
+                        <input type="text" name="codice_fiscale" value="{{ richiesta.studente.codice_fiscale }}" class="vTextField" maxlength="16" required id="id_codice_fiscale" readonly>
                     </div>
                 </div>
                 <div class="form-row field-matricola">
                     <div>
                         <label class="required" for="id_matricola">Matricola:</label>
-                        <input type="text" name="matricola" value="{{ richiesta.matricola }}" class="vTextField" maxlength="6" required id="id_matricola" readonly>
+                        <input type="text" name="matricola" value="{{ richiesta.studente.matricola }}" class="vTextField" maxlength="6" required id="id_matricola" readonly>
                     </div>
                 </div>
                 <div class="form-row field-tutor">
                     <div>
                         <label class="required">Tutor:</label>
-                        <input type="text" name="tutor_nome" value="{{ richiesta.tutor.first_name }}" class="vTextField" maxlength="40" readonly>
-                        <input type="text" name="tutor_cognome" value="{{ richiesta.tutor.last_name }}" class="vTextField" maxlength="40" readonly>
-                        <input type="text" name="tutor_email" value="{{ richiesta.tutor.email }}" class="vTextField" maxlength="80" readonly>
+                        <input type="text" name="tutor" value="{{ richiesta.tutor }}" class="vTextField" maxlength="40" readonly>
                     </div>
                 </div>
                 <div class="form-row field-sede">
