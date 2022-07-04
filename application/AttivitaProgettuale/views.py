@@ -96,6 +96,16 @@ def update_state(request, richiesta_id):
         return HttpResponseRedirect(reverse('AttivitaProgettuale:mylogin'))
 
 
+class RichiestaDeleteView(generic.DeleteView):
+    # specify the model you want to use
+    model = Richiesta
+
+    # can specify success url
+    # url to redirect after successfully
+    # deleting object
+    success_url = "/archivio"
+
+
 def generate_pdf(request):
     template = get_template('AttivitaProgettuale/richiesta_compilata.html')
     user = request.user

@@ -15,5 +15,6 @@ urlpatterns = [
     path('gestione/<int:pk>/', views.GestioneRichiestaView.as_view(), name='gestione'),
     path('update/<int:richiesta_id>/', views.update_state, name='update'),
     path('redirect/', views.next_page, name='redirect'),
-    path('generate/', views.generate_pdf, name='generate')
+    path('generate/', views.generate_pdf, name='generate'),
+    path('<pk>/delete/', views.RichiestaDeleteView.as_view(), name='delete')
 ]

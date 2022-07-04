@@ -92,7 +92,7 @@
                 {% if richiesta.stato == 0 %}
                     <input type="submit" value="Invia la Richiesta al Professore" class="default" name="_inviaProf" onclick="window.location.href='{% url 'AttivitaProgettuale:update' richiesta.id %}'" />
                 {% endif %}
-                <p class="deletelink-box"><a href="/admin/AttivitaProgettuale/richiesta/1/delete/" class="deletelink">Cancella</a></p>
+                <p class="deletelink-box"><a href="{% url 'AttivitaProgettuale:delete' richiesta.id %}" class="deletelink">Cancella</a></p>
             </div>
         </div>
       </div>
