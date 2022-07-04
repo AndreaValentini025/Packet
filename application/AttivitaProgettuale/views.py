@@ -77,7 +77,7 @@ class GestioneRichiestaView(generic.DetailView):
     template_name = 'AttivitaProgettuale/gestore_richieste_new.html'
 
 
-class GestioneLoginView(generic):
+class GestioneLoginView(generic.TemplateView):
     model = Studente
     template_name = "AttivitaProgettuale/prova.html"
 
