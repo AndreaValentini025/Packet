@@ -64,7 +64,7 @@
 <body onload="update_fields()">
     {% if not user.is_authenticated %}
         <p>Devi fare il login prima di proseguire</p>
-        <input type="hidden" name="next" value="/AttivitaProgettuale/modulo/">
+        <input type="hidden" name="next" value="/modulo/">
 
     {% elif user.groups.all.0.name != 'Studente' %}
         <p>Devi essere uno studente per poter inserire una richiesta</p>
