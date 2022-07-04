@@ -143,6 +143,6 @@ def generate_pdf(request):
 
 def access(request):
     qp = {
-        'next': reverse('AttivitaProgettuale:')
+        'next': reverse('AttivitaProgettuale:mylogin')
     }
     return HttpResponseRedirect('http://services.ing.unimore.it/tirocini/test', params=qp)
