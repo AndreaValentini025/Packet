@@ -79,6 +79,18 @@ class GestioneRichiestaView(generic.DetailView):
     template_name = 'AttivitaProgettuale/gestore_richieste_new.html'
 
 
+class GestioneLoginView(generic.DetailView):
+    model = Studente
+    template_name = "AttivitaProgettuale/prova.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(RichiestaCreateView, self).get_context_data(**kwargs)
+        rsp = requests.get("http://services.ing.unimore.it/tesisti/test")
+        context['headers'] = rsp
+        print(context)
+        return context
+
+
 class RichiestaDetailView(generic.DetailView):
     model = Richiesta
     template_name = 'AttivitaProgettuale/richiesta_compilata.html'
