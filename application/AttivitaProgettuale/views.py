@@ -85,7 +85,7 @@ class GestioneLoginView(generic.TemplateView):
         context = super(RichiestaCreateView, self).get_context_data(**kwargs)
         rsp = requests.get("http://services.ing.unimore.it/tesisti/test")
         context['headers'] = rsp
-        print(context)
+        print(rsp)
         return context
 
 
