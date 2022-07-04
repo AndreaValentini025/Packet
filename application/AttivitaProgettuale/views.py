@@ -6,6 +6,7 @@ from django.utils import timezone
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from django.utils.http import urlencode
 from django.views import generic
 from io import BytesIO
 from django.template.loader import get_template
@@ -145,4 +146,4 @@ def access(request):
     qp = {
         'next': reverse('AttivitaProgettuale:mylogin')
     }
-    return HttpResponseRedirect('http://services.ing.unimore.it/tirocini/test', params=qp)
+    return HttpResponseRedirect('http://services.ing.unimore.it/tirocini/test' + '?' + urlencode(qp))
