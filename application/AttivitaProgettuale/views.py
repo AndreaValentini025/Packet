@@ -56,14 +56,16 @@ def success(request):
 
 
 def next_page(request):
+    print(request.POST.get('user'))
     if request.user.groups.all():
+        print("Sto usando l'if")
         if request.user.groups.all()[0].name == 'Studente':
             return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
         elif request.user.groups.all()[0].name == 'UfficioStage':
             return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
     else:
         print("Sto usando l'else")
-        login(request,request.POST.get('user'))
+        login(request, request.POST.get('user'))
         if request.GET.get('role') == 'Studente':
             return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
         elif request.GET.get('role') == 'UfficioStage':
