@@ -66,7 +66,7 @@ def next_page(request):
             return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
     else:
         print("Sto usando l'else")
-        usr = User.objects.get(username=request.POST.get('user'))[0]
+        usr = User.objects.get(username=request.POST.get('user'))
         if usr:
             login(request, usr)
         if request.GET.get('role') == 'Studente':
