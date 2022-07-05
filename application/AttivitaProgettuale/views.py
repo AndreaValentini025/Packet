@@ -15,7 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from xhtml2pdf import pisa
 
-from .models import Richiesta, Studente
+from .models import Richiesta, Studente, User
 import requests
 
 
@@ -66,7 +66,9 @@ def next_page(request):
             return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
     else:
         print("Sto usando l'else")
-        login(request, request.POST.get('user'))
+        usr = User.objects.get(username=request.POST.get('user'))[0]
+        if usr:
+            login(request, usr)
         if request.GET.get('role') == 'Studente':
             return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
         elif request.GET.get('role') == 'UfficioStage':
