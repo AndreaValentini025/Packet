@@ -11,6 +11,7 @@ from django.utils.http import urlencode
 from django.views import generic
 from io import BytesIO
 from django.template.loader import get_template
+from django.views.decorators.csrf import csrf_exempt
 
 from xhtml2pdf import pisa
 
@@ -54,7 +55,7 @@ class RichiestaCreateView(generic.CreateView):
 def success(request):
     return render(request, 'AttivitaProgettuale/static_success.html')
 
-
+@csrf_exempt
 def next_page(request):
     print(request.POST.get('user'))
     if request.user.groups.all():
