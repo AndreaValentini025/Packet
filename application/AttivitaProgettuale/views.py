@@ -56,7 +56,7 @@ def success(request):
 
 
 def next_page(request):
-    if request.user.groups.all()[0]:
+    if request.user.groups.all():
         if request.user.groups.all()[0].name == 'Studente':
             return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
         elif request.user.groups.all()[0].name == 'UfficioStage':
