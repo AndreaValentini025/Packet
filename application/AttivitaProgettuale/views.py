@@ -62,7 +62,9 @@ def next_page(request):
         usr = User.objects.get(username=request.POST.get('user'))
         if usr:
             login(request, usr)
-    print(request.user)
+    print(request.user.username)
+    print(request.user.groups)
+    print(request.user.groups.all())
     if request.user.groups.all()[0].name == 'Studente':
         return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
     elif request.user.groups.all()[0].name == 'UfficioStage':
