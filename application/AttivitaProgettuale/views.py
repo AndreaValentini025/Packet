@@ -58,23 +58,15 @@ def success(request):
 @csrf_exempt
 def next_page(request):
     print(request.POST.get('user'))
-    if request.user.groups.all():
-        print("Sto usando l'if")
-        if request.user.groups.all()[0].name == 'Studente':
-            return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
-        elif request.user.groups.all()[0].name == 'UfficioStage':
-            return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
-    else:
-        print("Sto usando l'else")
+    if not request.user.groups.all():
         usr = User.objects.get(username=request.POST.get('user'))
         if usr:
             login(request, usr)
-        if request.GET.get('role') == 'Studente':
-            return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
-        elif request.GET.get('role') == 'UfficioStage':
-            return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
-        else:
-            return HttpResponseRedirect(reverse('AttivitaProgettuale:mylogin'))
+
+    if request.user.groups.all()[0].name == 'Studente':
+        return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
+    elif request.user.groups.all()[0].name == 'UfficioStage':
+        return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
 
 
 class RichiestaListView(generic.ListView):
