@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Ciao</title>
+    <script>
+        window.onload = function(){
+          document.forms['form'].submit();
+        }
+
+    </script>
 </head>
 <body>
-<p> {{ headers.givenName }}</p>
-<p> {{ headers.sn }}</p>
-<p> {{ headers.uid }}</p>
-<p> {{ headers.mail }}</p>
-<p> {{ headers.ou.2 }}</p>
+
+<form method="post" action=" {% url 'AttivitaProgettuale:redirect' %}" name="form">
+     {% csrf_token %}
+    <input type="hidden" name="user" value="{{user}}">
+</form>
 </body>
 </html>

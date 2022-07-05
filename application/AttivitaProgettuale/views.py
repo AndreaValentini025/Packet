@@ -1,6 +1,7 @@
 import datetime
 import os
 
+from django.contrib.auth import login
 from django.utils import timezone
 
 from django.http import HttpResponseRedirect, HttpResponse
@@ -61,6 +62,8 @@ def next_page(request):
         elif request.user.groups.all()[0].name == 'UfficioStage':
             return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
     else:
+        print("Sto usando l'else")
+        login(request,request.POST.get('user'))
         if request.GET.get('role') == 'Studente':
             return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
         elif request.GET.get('role') == 'UfficioStage':
@@ -85,16 +88,9 @@ class GestioneRichiestaView(generic.DetailView):
     model = Richiesta
     template_name = 'AttivitaProgettuale/gestore_richieste_new.html'
 
-class GestioneLoginView(generic.DetailView):
-    model = Studente
-    template_name = "AttivitaProgettuale/prova.html"
 
-    def get_context_data(self, **kwargs):
-        context = super(GestioneLoginView, self).get_context_data(**kwargs)
-        rsp = requests.get("http://services.ing.unimore.it/tirocini/test")
-        context['headers'] = rsp
-        print(rsp.text)
-        return context
+class GestioneLoginView(generic.FormView):
+    template_name = "AttivitaProgettuale/prova.html"
 
 
 class RichiestaDetailView(generic.DetailView):
