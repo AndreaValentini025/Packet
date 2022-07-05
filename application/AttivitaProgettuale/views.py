@@ -57,12 +57,12 @@ def success(request):
 
 @csrf_exempt
 def next_page(request):
-    print(request.POST.get('user'))
+    print(request.user)
     if not request.user.groups.all():
         usr = User.objects.get(username=request.POST.get('user'))
         if usr:
             login(request, usr)
-
+    print(request.user)
     if request.user.groups.all()[0].name == 'Studente':
         return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
     elif request.user.groups.all()[0].name == 'UfficioStage':
