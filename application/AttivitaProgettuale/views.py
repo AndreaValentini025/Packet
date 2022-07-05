@@ -144,6 +144,6 @@ def generate_pdf(request):
 
 def access(request):
     qp = {
-        'next': request.build_absolute_uri(reverse('AttivitaProgettuale:mylogin'))
+        'next': request.build_absolute_uri(reverse('AttivitaProgettuale:redirect'))
     }
     return HttpResponseRedirect('http://services.ing.unimore.it/tirocini/test' + '?' + urlencode(qp))
