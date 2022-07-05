@@ -1,6 +1,7 @@
 import datetime
 import os
 
+from AttivitaProgettuale.models import User
 from django.utils import timezone
 
 from django.http import HttpResponseRedirect, HttpResponse
@@ -55,10 +56,20 @@ def success(request):
 
 
 def next_page(request):
-    if request.user.groups.all()[0].name == 'Studente':
-        return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
-    elif request.user.groups.all()[0].name == 'UfficioStage':
-        return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
+    if request.user.groups.all()[0]:
+        if request.user.groups.all()[0].name == 'Studente':
+            return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
+        elif request.user.groups.all()[0].name == 'UfficioStage':
+            return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
+    else:
+        usr=User.objects.get(id=request.session.get('user_id', None))
+        if usr:
+            if usr[0].groups.all()[0].name == 'Studente':
+                return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
+            elif usr[0].groups.all()[0].name == 'UfficioStage':
+                return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
+        else:
+            return HttpResponseRedirect(reverse('AttivitaProgettuale:mylogin'))
 
 
 class RichiestaListView(generic.ListView):
