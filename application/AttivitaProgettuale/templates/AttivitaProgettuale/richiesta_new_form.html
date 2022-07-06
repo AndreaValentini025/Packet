@@ -185,7 +185,7 @@
                                 </div>
                             {% endfor %}
                         {% else %}
-                            {% render_field field class="form-control is-valid" %}
+                            {% render_field field class="form-control is-valid" type="text" value="{{ richiesta.studente.user.first_name }}" %}
                         {% endif %}
                     {% else %}
                         {% render_field field class="form-control" %}
@@ -209,7 +209,7 @@
                                 </div>
                             {% endfor %}
                         {% else %}
-                            {% render_field field class="form-control is-valid" type="text" value="{{ richiesta.studente.user.first_name }}" %}
+                            {% render_field field class="form-control is-valid" %}
                         {% endif %}
                     {% else %}
                         {% render_field field class="form-control" %}
