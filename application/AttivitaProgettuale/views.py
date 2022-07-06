@@ -41,7 +41,7 @@ class RichiestaCreateView(generic.CreateView):
         form.fields['data_inizio'].widget.attrs.update({'class': 'datepicker'})
         return form
 
-    def get_context_data(self, request, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super(RichiestaCreateView, self).get_context_data(**kwargs)
         queryparam = {'nameOptions': 'boy_names'}
         rsp = requests.get("http://names.drycodes.com/10", params=queryparam)
@@ -125,8 +125,8 @@ class RichiestaDeleteView(generic.DeleteView):
 def generate_pdf(request):
     template = get_template('AttivitaProgettuale/richiesta_compilata.html')
     user = request.user
-    student = Studente.objects.get(user__username__exact = user.username )
-    richiesta = Richiesta.objects.filter(studente__id__exact = student.id).order_by('-created_at')[0]
+    student = Studente.objects.get(user__username__exact=user.username )
+    richiesta = Richiesta.objects.filter(studente__id__exact=student.id).order_by('-created_at')[0]
     context_dict = {
         "richiesta": richiesta,
         "path": os.path.join(os.path.abspath(__file__), '..\static\images')
