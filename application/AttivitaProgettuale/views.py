@@ -44,7 +44,7 @@ class RichiestaCreateView(generic.CreateView):
     def get_context_data(self, **kwargs):
         context = super(RichiestaCreateView, self).get_context_data(**kwargs)
         queryparam = {'nameOptions': 'boy_names'}
-        rsp = requests.get("http://names.drycodes.com/10", params=queryparam)
+        rsp = requests.get("https://names.drycodes.com/10", params=queryparam)
         context['lista_prof'] = rsp.json()
         return context
 
@@ -149,4 +149,4 @@ def access(request):
     qp = {
         'next': request.build_absolute_uri(reverse('AttivitaProgettuale:redirect'))
     }
-    return HttpResponseRedirect('http://services.ing.unimore.it/tirocini/test' + '?' + urlencode(qp))
+    return HttpResponseRedirect('https://services.ing.unimore.it/tirocini/test' + '?' + urlencode(qp))
