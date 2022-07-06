@@ -41,12 +41,12 @@ class RichiestaCreateView(generic.CreateView):
         form.fields['data_inizio'].widget.attrs.update({'class': 'datepicker'})
         return form
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, request, **kwargs):
         context = super(RichiestaCreateView, self).get_context_data(**kwargs)
         queryparam = {'nameOptions': 'boy_names'}
         rsp = requests.get("http://names.drycodes.com/10", params=queryparam)
         context['lista_prof'] = rsp.json()
-        context['user'] = requests.user
+        context['user'] = request.user
         return context
 
     def get_success_url(self):
