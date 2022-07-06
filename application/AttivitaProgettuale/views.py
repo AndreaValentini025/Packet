@@ -46,6 +46,8 @@ class RichiestaCreateView(generic.CreateView):
         queryparam = {'nameOptions': 'boy_names'}
         rsp = requests.get("http://names.drycodes.com/10", params=queryparam)
         context['lista_prof'] = rsp.json()
+        context['user'] = requests.user
+        print(requests.user)
         return context
 
     def get_success_url(self):
@@ -66,9 +68,6 @@ def next_page(request):
     print(request.user.groups)
     print(request.user.groups.all())
     if request.user.groups.all()[0].name == 'Studente':
-        context = super().get_context_data()
-        context['user'] = request.user
-        print(request.user)
         return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
     elif request.user.groups.all()[0].name == 'UfficioStage':
         return HttpResponseRedirect(reverse('AttivitaProgettuale:archivio_richieste'))
