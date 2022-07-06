@@ -46,8 +46,7 @@ class RichiestaCreateView(generic.CreateView):
         queryparam = {'nameOptions': 'boy_names'}
         rsp = requests.get("http://names.drycodes.com/10", params=queryparam)
         context['lista_prof'] = rsp.json()
-        context['user'] = requests.user
-        print(requests.user)
+        print(requests)
         return context
 
     def get_success_url(self):
