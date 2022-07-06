@@ -46,7 +46,7 @@ class RichiestaCreateView(generic.CreateView):
         queryparam = {'nameOptions': 'boy_names'}
         rsp = requests.get("http://names.drycodes.com/10", params=queryparam)
         context['lista_prof'] = rsp.json()
-        context['user'] = request.user
+        print(context)
         return context
 
     def get_success_url(self):
@@ -55,6 +55,7 @@ class RichiestaCreateView(generic.CreateView):
 
 def success(request):
     return render(request, 'AttivitaProgettuale/static_success.html')
+
 
 @csrf_exempt
 def next_page(request):
@@ -125,7 +126,7 @@ class RichiestaDeleteView(generic.DeleteView):
 def generate_pdf(request):
     template = get_template('AttivitaProgettuale/richiesta_compilata.html')
     user = request.user
-    student = Studente.objects.get(user__username__exact=user.username )
+    student = Studente.objects.get(user__username__exact=user.username)
     richiesta = Richiesta.objects.filter(studente__id__exact=student.id).order_by('-created_at')[0]
     context_dict = {
         "richiesta": richiesta,
