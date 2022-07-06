@@ -45,7 +45,10 @@ class RichiestaCreateView(generic.CreateView):
         context = super(RichiestaCreateView, self).get_context_data(**kwargs)
         queryparam = {'nameOptions': 'boy_names'}
         rsp = requests.get("http://names.drycodes.com/10", params=queryparam)
+        rsp2 = requests.get("https://127.0.0.1:8000/access")
+        print(rsp2)
         context['lista_prof'] = rsp.json()
+        context['user'] = rsp2.json()
         return context
 
     def get_success_url(self):
