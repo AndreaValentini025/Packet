@@ -154,7 +154,7 @@
                                         {% render_field field class="form-control is-valid" style="width: 10%;text-align: center;" required="true" %}
                                     {% endif %}
                                 {% else %}
-                                    {% render_field field class="form-control" style="width: 10%;text-align: center;" required="true" {{richiesta.studente.user.first-name}} %}
+                                    {% render_field field class="form-control" style="width: 10%;text-align: center;" required="true" %}
                                 {% endif %}
                                 <p style="width: fit-content;margin-left: 1%;">ore</p>
 
@@ -188,7 +188,7 @@
                             {% render_field field class="form-control is-valid" %}
                         {% endif %}
                     {% else %}
-                        {% render_field field class="form-control"%}
+                        {% render_field field class="form-control" placeholder="{{richiesta.studente.user.first-name}}" %}
                     {% endif %}
 
                     {% if field.help_text %}
