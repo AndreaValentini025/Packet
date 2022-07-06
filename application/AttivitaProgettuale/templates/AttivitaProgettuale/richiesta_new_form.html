@@ -149,12 +149,12 @@
                             <div style="width: 50%;display: flex;align-items: center;justify-content: flex-start;">
                                 {% if form.is_bound %}
                                     {% if field.errors %}
-                                        {% render_field field class="form-control is-invalid" style="width: 10%;text-align: center;" required="true" %}
+                                        {% render_field field class="form-control is-invalid" style="width: 40%;text-align: center;" required="true" %}
                                     {% else %}
-                                        {% render_field field class="form-control is-valid" style="width: 10%;text-align: center;" required="true" %}
+                                        {% render_field field class="form-control is-valid" style="width: 40%;text-align: center;" required="true" %}
                                     {% endif %}
                                 {% else %}
-                                    {% render_field field class="form-control" style="width: 10%;text-align: center;" required="true" placeholder="richiesta.studente.user.first-name" %}
+                                    {% render_field field class="form-control" style="width: 40%;text-align: center;" required="true" placeholder="richiesta.studente.user.first-name" %}
                                 {% endif %}
                                 <p style="width: fit-content;margin-left: 1%;">ore</p>
 
