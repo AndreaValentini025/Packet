@@ -66,7 +66,7 @@ def next_page(request):
     print(request.user.groups)
     print(request.user.groups.all())
     if request.user.groups.all()[0].name == 'Studente':
-        context = super(RichiestaCreateView, self).get_context_data(**kwargs)
+        context = super().get_context_data()
         context['user'] = request.user
         print(request.user)
         return HttpResponseRedirect(reverse('AttivitaProgettuale:richiesta'))
