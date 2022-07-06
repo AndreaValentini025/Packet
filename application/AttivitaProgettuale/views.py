@@ -48,7 +48,7 @@ class RichiestaCreateView(generic.CreateView):
         rsp2 = requests.get("http://127.0.0.1:8000/access")
         print(rsp2)
         context['lista_prof'] = rsp.json()
-        context['user'] = rsp2.json()
+        context['user'] = rsp2
         return context
 
     def get_success_url(self):
