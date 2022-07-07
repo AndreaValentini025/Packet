@@ -9,5 +9,6 @@ body{
 }
 
 .submit-row{
-    border-radius: 0px 0px 20px 20px;
+    border: 0px;
+    margin: 0px;
 }
