@@ -3,6 +3,10 @@ body{
     position: absolute;
     left: 15%;
     top: 5%;
-    border: 1px solid grey;
+    border: 1px solid var(--hairline-color);;
     border-radius: 20px;
+}
+
+.submit-row{
+    border-radius: 0px 0px 20px 20px;
 }
