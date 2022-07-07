@@ -1,0 +1,8 @@
+body{
+    width: 70%;
+    position: absolute;
+    left: 15%;
+    top: 5%;
+    border: 1px solid grey;
+    border-radius: 20px;
+}
