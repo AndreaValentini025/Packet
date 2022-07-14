@@ -34,7 +34,7 @@ class Richiesta(models.Model):
         (0, 'Richiesta non ancora visionata'),
         (1, 'Richiesta approvata'),
     ]
-    studente = models.CharField(max_length=254)
+    studente = models.ForeignKey('Studente', on_delete=models.DO_NOTHING)
     tutor = models.CharField(max_length=60)
     sede = models.CharField(max_length=254)
     durata = models.IntegerField()
