@@ -48,8 +48,9 @@
             }
 
             std=document.getElementById("id_studente");
-            std.value="{{ user }}";
-            std.readOnly= true;
+            value= {{ user.id }} -1;
+            std.value= String(value);
+            std.disabled= true;
         }
 
     </script>
