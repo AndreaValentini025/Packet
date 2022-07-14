@@ -46,6 +46,10 @@
             for (var i = 0; i < labels.length; i++) {
                 labels[i].classList.add("col-sm")
             }
+
+            std=document.getElementById("id_studente");
+            std.value="{{ user }}";
+            std.readOnly= true;
         }
 
     </script>
@@ -173,24 +177,6 @@
                                 <small class="form-text text-muted">{{ field.help_text }}</small>
                             {% endif %}
                         </div>
-
-                {% elif field.name == "studente" %}
-                    <div class="form-row field-{{ field.name }}">
-                        {{ field.label_tag }}
-                        <input type="text" class="form-control" value="{{user}}" readonly>
-                    </div>
-        {% if form.is_bound %}
-                                {% if field.errors %}
-                                    {% for error in field.errors %}
-                                        <div class="invalid-feedback">
-                                            {{ error }}
-                                        </div>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if field.help_text %}
-                                <small class="form-text text-muted">{{ field.help_text }}</small>
-                            {% endif %}
 
                 {% else %}
 
