@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  Compilazione automatica per richieste di attività progettuali
 // @author       Valentini Andrea & Artoni Alessandro
-// @match        http://127.0.0.1:8000/inserimento/
+// @match        https://services.ing.unimore.it/tirocini/gestione/*/
 // @match        https://placement.unimore.it/it/aziende/aiuto/
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -56,12 +56,13 @@ function paste(){
 (function() {
     'use strict';
 
-    if(window.location.hostname == "127.0.0.1"){
+    if(window.location.hostname == "services.ing.unimore.it"){
         var buttonCopy = document.createElement("input");
              buttonCopy.type = "button";
              buttonCopy.value = "Retrive data";
+             buttonCopy.classList.add("tm-btn");
              buttonCopy.onclick = copy;
-			 document.getElementById("buttonDiv").appendChild(buttonCopy);
+			 document.getElementsByClassName("submit-row")[0].appendChild(buttonCopy);
     }
     else
     {
