@@ -42,19 +42,12 @@ function pastePage1(){
     var df= new Date(GM_getValue("data_fine"));
     data_fine.value = df.toLocaleDateString();
     codice_fiscale.value = GM_getValue("codice_fiscale");
-    tipo.value = 2;
-    var opt = tipo.getElementsByTagName("option");
-    for(var i = 0; i < opt.length; i++){
-        if(opt[i].value != tipo.value){
-            console.log(opt[i].value + " " + tipo.getElementsByTagName("option")[i].selected);
-            opt[i].selected = false;
-        }
-        else{
-            console.log(opt[i].value + " " + tipo.getElementsByTagName("option")[i].selected);
-            opt[i].selected = true;
-        }
-    }
-    regione.value = 1006;
+    var x = regione.innerHTML.replace('selected="selected"','');
+    x=x.replace('value="1008"','value="1008" selected="selected"');
+    regione.innerHTML=x;
+    var y = tipo.innerHTML.replace('selected="selected"','');
+    y=y.replace('value="1"','value="1" selected="selected"');
+    tipo.innerHTML=y;
     //regione.getElementsByTagName("option")[regione.value].selected = true;
     matricola.value = GM_getValue("matricola");
 }
@@ -77,7 +70,7 @@ function pastePage2(){
    var cognome_tutor = GM_getValue("tutor").slice(GM_getValue("tutor").lastIndexOf(" ") + 1);
    nome_tutor_accademico.value = nome_tutor;
    cognome_tutor_accademico.value = cognome_tutor;
-   email_tutor_accademico.value = nome_tutor.toLowerCase().replace(/\s+/g, '') + "." + cognome_tutor.toLowerCase() + "@unimore.it";
+   email_tutor_accademico.value = nome_tutor.toLowerCase() + "." + cognome_tutor.toLowerCase() + "@unimore.it";
    nome_tutor_aziendale.value = "Massimo";
    cognome_tutor_aziendale.value = "Borghi";
    email_tutor_aziendale.value = "direttore.dief@unimore.it";
@@ -86,6 +79,7 @@ function pastePage2(){
    ora_ingresso.value = "08:00";
    ora_uscita.value = "19:00";
    durata.value = GM_getValue("durata");
+   console.log(GM_getValue("obiettivi"));
    obiettivi.value = GM_getValue("obiettivi");
 }
 
