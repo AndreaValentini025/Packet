@@ -5,6 +5,7 @@
 // @description  Compilazione automatica per richieste di attività progettuali
 // @author       Valentini Andrea & Artoni Alessandro
 // @match        https://services.ing.unimore.it/tirocini/gestione/*/
+// @match        file:///C:/Users/hp/OneDrive/Desktop/Pagina1Alma.html
 // @match        file:///A:/andre/Desktop/Pagina1Alma.html
 // @match        file:///C:/Users/hp/OneDrive/Desktop/Pagina2Alma.html
 // @grant        GM_setValue
@@ -100,7 +101,7 @@ function pastePage2(){
              buttonCopy.onclick = copy;
 			 document.getElementById("formDelete").insertAdjacentElement('afterbegin', buttonCopy);
     }
-    else if(window.location.pathname == "/A:/andre/Desktop/Pagina1Alma.html")
+    else if(window.location.pathname == "/A:/andre/Desktop/Pagina1Alma.html" || window.location.pathname == "/C:/Users/hp/OneDrive/Desktop/Pagina1Alma.html")
     {
         var buttonPaste = document.createElement("input");
              buttonPaste.type = "button";
