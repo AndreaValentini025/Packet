@@ -5,52 +5,84 @@
 // @description  Compilazione automatica per richieste di attività progettuali
 // @author       Valentini Andrea & Artoni Alessandro
 // @match        https://services.ing.unimore.it/tirocini/gestione/*/
-// @match        https://placement.unimore.it/it/aziende/aiuto/
+// @match        file:///C:/Users/hp/OneDrive/Desktop/Pagina1Alma.html
+// @match        file:///C:/Users/hp/OneDrive/Desktop/Pagina2Alma.html
 // @grant        GM_setValue
 // @grant        GM_getValue
 // ==/UserScript==
 
 function copy(){
-    GM_setValue("nome",document.getElementById("Nome").value);
-    GM_setValue("cognome",document.getElementById("Cognome").value);
-    GM_setValue("azienda",document.getElementById("Azienda").value);
-    GM_setValue("funzione_aziendale",document.getElementById("FunzionaAziendale").value);
-    GM_setValue("attivita_azienda",document.getElementById("AttivitaAzienda").value);
-    GM_setValue("citta",document.getElementById("Citta").value);
-    GM_setValue("nazione",document.getElementById("Nazione").value);
-    GM_setValue("email",document.getElementById("Email").value);
-    GM_setValue("telefono",document.getElementById("Telefono").value);
-    GM_setValue("cellulare",document.getElementById("Cellulare").value);
-    GM_setValue("argomento",document.getElementById("argomentiContatto").value);
-    GM_setValue("testo",document.getElementById("Testo").value);
+    alert("Dati copiati");
+    GM_setValue("referente", document.getElementById("referente").value);
+    GM_setValue("nome",document.getElementById("id_nome").value);
+    GM_setValue("cognome",document.getElementById("id_cognome").value);
+    GM_setValue("codice_fiscale",document.getElementById("id_codice_fiscale").value);
+    GM_setValue("matricola",document.getElementById("id_matricola").value);
+    GM_setValue("tutor",document.getElementById("id_tutor").value);
+    GM_setValue("sede",document.getElementById("id_sede").value);
+    GM_setValue("durata",document.getElementById("id_durata").value);
+    GM_setValue("data_inizio",document.getElementById("id_data_inizio").value);
+    GM_setValue("data_fine",document.getElementById("id_data_fine").value);
+    GM_setValue("obiettivi",document.getElementById("id_obiettivi").value);
 }
 
-function paste(){
-   var nome = document.getElementById("Nome") ;
-   var cognome = document.getElementById("Cognome") ;
-   var azienda = document.getElementById("Azienda") ;
-   var funzione_aziendale = document.getElementById("FunzionaAziendale") ;
-   var attivita_azienda = document.getElementById("AttivitaAzienda") ;
-   var citta = document.getElementById("Citta") ;
-   var nazione = document.getElementById("Nazione") ;
-   var email = document.getElementById("Email") ;
-   var telefono = document.getElementById("Telefono") ;
-   var cellulare = document.getElementById("Cellulare") ;
-   var argomento = document.getElementById("argomentiContatto") ;
-   var testo = document.getElementById("Testo") ;
+function pastePage1(){
+   var tipo = document.getElementById("TipoTirocinio") ;
+   var regione = document.getElementById("RegioneDocumento") ;
+   var data_inizio = document.getElementById("DataInizioProgettoFormativo") ;
+   var data_fine = document.getElementById("DataFineProgettoFormativo") ;
+   var codice_fiscale = document.getElementById("CodFisc") ;
+   var matricola = document.getElementById("Matricola") ;
 
-    nome.value = GM_getValue("nome");
-    cognome.value = GM_getValue("cognome");
-    azienda.value = GM_getValue("azienda");
-    funzione_aziendale.value = GM_getValue("funzione_aziendale");
-    attivita_azienda.value = GM_getValue("attivita_azienda");
-    citta.value = GM_getValue("citta");
-    nazione.value = GM_getValue("nazione");
-    email.value = GM_getValue("email");
-    telefono.value = GM_getValue("telefono");
-    cellulare.value = GM_getValue("cellulare");
-    argomento.value = GM_getValue("argomento");
-    testo.value = GM_getValue("testo");
+    data_inizio.value = GM_getValue("data_inizio");
+    data_fine.value = GM_getValue("data_fine");
+    codice_fiscale.value = GM_getValue("codice_fiscale");
+    tipo.value = 2;
+    var opt = tipo.getElementsByTagName("option");
+    for(var i = 0; i < opt.length; i++){
+        if(opt[i].value != tipo.value){
+            console.log(opt[i].value + " " + tipo.getElementsByTagName("option")[i].selected);
+            opt[i].selected = false;
+        }
+        else{
+            console.log(opt[i].value + " " + tipo.getElementsByTagName("option")[i].selected);
+            opt[i].selected = true;
+        }
+    }
+    regione.value = 1006;
+    //regione.getElementsByTagName("option")[regione.value].selected = true;
+    matricola.value = GM_getValue("matricola");
+}
+
+function pastePage2(){
+   var nome_tutor_accademico = document.getElementById("TutorAccademicoTutorAccademicoNome") ;
+   var cognome_tutor_accademico = document.getElementById("TutorAccademicoTutorAccademicoCognome") ;
+   var email_tutor_accademico = document.getElementById("TutorAccademicoTutorAccademicoEmail") ;
+   var nome_tutor_aziendale = document.getElementById("TutorAziendaleNome") ;
+   var cognome_tutor_aziendale = document.getElementById("TutorAziendaleCognome") ;
+   var email_tutor_aziendale = document.getElementById("TutorAziendaleEmail") ;
+   var referente = document.getElementById("RappresentanteNominativo") ;
+   var sede = document.getElementById("StabilimentoRepartoUfficio") ;
+   var ora_ingresso = document.getElementById("OrarioAccessoInizio") ;
+   var ora_uscita = document.getElementById("OrarioAccessoFine") ;
+   var durata = document.getElementById("TirocinioDurata") ;
+   var obiettivi = document.getElementById("Attivita") ;
+
+   var nome_tutor = GM_getValue("tutor").slice(0, GM_getValue("tutor").lastIndexOf(" "));
+   var cognome_tutor = GM_getValue("tutor").slice(GM_getValue("tutor").lastIndexOf(" ") + 1);
+   nome_tutor_accademico.value = nome_tutor;
+   cognome_tutor_accademico.value = cognome_tutor;
+   email_tutor_accademico.value = nome_tutor.toLowerCase() + "." + cognome_tutor.toLowerCase() + "@unimore.it";
+   nome_tutor_aziendale.value = "Massimo";
+   cognome_tutor_aziendale.value = "Borghi";
+   email_tutor_aziendale.value = "direttore.dief@unimore.it";
+   referente.value = GM_getValue("referente");
+   sede.value = GM_getValue("sede");
+   ora_ingresso.value = "08:00";
+   ora_uscita.value = "19:00";
+   durata.value = GM_getValue("durata");
+   console.log(GM_getValue("obiettivi"));
+   obiettivi.value = GM_getValue("obiettivi");
 }
 
 (function() {
@@ -60,16 +92,23 @@ function paste(){
         var buttonCopy = document.createElement("input");
              buttonCopy.type = "button";
              buttonCopy.value = "Retrive data";
-             buttonCopy.classList.add("tm-btn");
+             buttonCopy.style.backgroundColor = "green";
              buttonCopy.onclick = copy;
-			 document.getElementsByClassName("submit-row")[0].appendChild(buttonCopy);
+			 document.getElementById("formDelete").insertAdjacentElement('afterbegin', buttonCopy);
     }
-    else
+    else if(window.location.pathname == "/C:/Users/hp/OneDrive/Desktop/Pagina1Alma.html")
     {
         var buttonPaste = document.createElement("input");
              buttonPaste.type = "button";
              buttonPaste.value = "Paste data";
-             buttonPaste.onclick = paste;
-			 document.getElementById("PageText").parentElement.appendChild(buttonPaste);
+             buttonPaste.onclick = pastePage1;
+			 document.getElementById("PageContent").appendChild(buttonPaste);
+    }
+    else{
+        var buttonPaste2 = document.createElement("input");
+             buttonPaste2.type = "button";
+             buttonPaste2.value = "Paste data";
+             buttonPaste2.onclick = pastePage2;
+			 document.getElementById("dettaglioProgettoFormativo").appendChild(buttonPaste2);
     }
 })();
