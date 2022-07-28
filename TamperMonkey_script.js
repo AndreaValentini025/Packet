@@ -5,7 +5,7 @@
 // @description  Compilazione automatica per richieste di attività progettuali
 // @author       Valentini Andrea & Artoni Alessandro
 // @match        https://services.ing.unimore.it/tirocini/gestione/*/
-// @match        file:///C:/Users/hp/OneDrive/Desktop/Pagina1Alma.html
+// @match        file:///A:/andre/Desktop/Pagina1Alma.html
 // @match        file:///C:/Users/hp/OneDrive/Desktop/Pagina2Alma.html
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -36,9 +36,10 @@ function pastePage1(){
    var data_fine = document.getElementById("DataFineProgettoFormativo") ;
    var codice_fiscale = document.getElementById("CodFisc") ;
    var matricola = document.getElementById("Matricola") ;
-
-    data_inizio.value = GM_getValue("data_inizio");
-    data_fine.value = GM_getValue("data_fine");
+    var di= new Date(GM_getValue("data_inizio"));
+    data_inizio.value = di.toLocaleDateString();
+    var df= new Date(GM_getValue("data_fine"));
+    data_fine.value = df.toLocaleDateString();
     codice_fiscale.value = GM_getValue("codice_fiscale");
     tipo.value = 2;
     var opt = tipo.getElementsByTagName("option");
@@ -99,7 +100,7 @@ function pastePage2(){
              buttonCopy.onclick = copy;
 			 document.getElementById("formDelete").insertAdjacentElement('afterbegin', buttonCopy);
     }
-    else if(window.location.pathname == "/C:/Users/hp/OneDrive/Desktop/Pagina1Alma.html")
+    else if(window.location.pathname == "/A:/andre/Desktop/Pagina1Alma.html")
     {
         var buttonPaste = document.createElement("input");
              buttonPaste.type = "button";
