@@ -77,7 +77,7 @@ function pastePage2(){
    var cognome_tutor = GM_getValue("tutor").slice(GM_getValue("tutor").lastIndexOf(" ") + 1);
    nome_tutor_accademico.value = nome_tutor;
    cognome_tutor_accademico.value = cognome_tutor;
-   email_tutor_accademico.value = nome_tutor.toLowerCase() + "." + cognome_tutor.toLowerCase() + "@unimore.it";
+   email_tutor_accademico.value = nome_tutor.toLowerCase().replace(/\s+/g, '') + "." + cognome_tutor.toLowerCase() + "@unimore.it";
    nome_tutor_aziendale.value = "Massimo";
    cognome_tutor_aziendale.value = "Borghi";
    email_tutor_aziendale.value = "direttore.dief@unimore.it";
@@ -86,7 +86,6 @@ function pastePage2(){
    ora_ingresso.value = "08:00";
    ora_uscita.value = "19:00";
    durata.value = GM_getValue("durata");
-   console.log(GM_getValue("obiettivi"));
    obiettivi.value = GM_getValue("obiettivi");
 }
 
