@@ -12,7 +12,7 @@
 // ==/UserScript==
 
 function copy(){
-    alert("Dati copiati");
+
     GM_setValue("referente", document.getElementById("referente").value);
     GM_setValue("nome",document.getElementById("id_nome").value);
     GM_setValue("cognome",document.getElementById("id_cognome").value);
@@ -24,6 +24,9 @@ function copy(){
     GM_setValue("data_inizio",document.getElementById("id_data_inizio").value);
     GM_setValue("data_fine",document.getElementById("id_data_fine").value);
     GM_setValue("obiettivi",document.getElementById("id_obiettivi").value);
+	alert("Dati copiati");
+	document.getElementById("conferma").disabled=false;
+    window.open("https://placement.unimore.it/staff/home/ent/tirocini/pf/progettoformativostep1.aspx?lang=it&idAzienda=30000510");
 }
 
 function pastePage1(){
