@@ -89,7 +89,7 @@ function pastePage2(){
     if(window.location.hostname == "services.ing.unimore.it"){
         var buttonCopy = document.createElement("input");
              buttonCopy.type = "button";
-             buttonCopy.value = "Retrive data";
+             buttonCopy.value = "Copia dati";
              buttonCopy.style.backgroundColor = "green";
              buttonCopy.onclick = copy;
 			 document.getElementById("formDelete").insertAdjacentElement('afterbegin', buttonCopy);
@@ -98,14 +98,14 @@ function pastePage2(){
     {
         var buttonPaste = document.createElement("input");
              buttonPaste.type = "button";
-             buttonPaste.value = "Paste data";
+             buttonPaste.value = "Incolla dati";
              buttonPaste.onclick = pastePage1;
 			 document.getElementById("PageContent").appendChild(buttonPaste);
     }
     else{
         var buttonPaste2 = document.createElement("input");
              buttonPaste2.type = "button";
-             buttonPaste2.value = "Paste data";
+             buttonPaste2.value = "Incolla dati";
              buttonPaste2.onclick = pastePage2;
 			 document.getElementById("dettaglioProgettoFormativo").appendChild(buttonPaste2);
     }
